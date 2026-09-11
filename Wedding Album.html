@@ -496,7 +496,7 @@
       background-color: #FFF8F8 !important;
     }
 
-    /* Lightbox */
+    /* Lightbox & Navigation Controls */
     .lightbox-wrapper {
       width: 100%;
       max-width: 95vw;
@@ -505,6 +505,14 @@
       flex-direction: column;
       align-items: center;
       position: relative;
+    }
+
+    .lightbox-viewbox {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 100%;
     }
 
     .lightbox-body {
@@ -522,6 +530,7 @@
       border: 2px solid var(--temple-gold);
       border-radius: 6px;
       box-shadow: 0 5px 30px rgba(0,0,0,0.8);
+      user-select: none;
     }
 
     .lightbox-body iframe {
@@ -530,6 +539,42 @@
       max-width: 900px;
       border: 2px solid var(--temple-gold);
       border-radius: 6px;
+    }
+
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(38, 17, 7, 0.75);
+      border: 1px solid var(--temple-gold);
+      color: var(--temple-gold);
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      user-select: none;
+    }
+
+    .lightbox-nav-btn:hover {
+      background: var(--kanjivaram-maroon);
+      color: #fff;
+      border-color: var(--bright-gold);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .lightbox-nav-prev {
+      left: -60px;
+    }
+
+    .lightbox-nav-next {
+      right: -60px;
     }
 
     .lightbox-actions {
@@ -572,6 +617,18 @@
       }
       .lightbox-body iframe {
         height: 45vh;
+      }
+      .lightbox-nav-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.3rem;
+        background: rgba(38, 17, 7, 0.85);
+      }
+      .lightbox-nav-prev {
+        left: 8px;
+      }
+      .lightbox-nav-next {
+        right: 8px;
       }
     }
   </style>
@@ -626,7 +683,6 @@
 
   <!-- =============================================================
        MODAL 1: STRICT MANDATORY GUEST REGISTER
-       (No close button, no caching, must click button to enter)
        ============================================================= -->
   <div class="modal-overlay" id="modal-guest-login">
     <div class="modal-sheet">
@@ -732,11 +788,17 @@
     </div>
   </div>
 
-  <!-- MODAL 4: FULLSCREEN LIGHTBOX -->
+  <!-- MODAL 4: FULLSCREEN LIGHTBOX WITH NEXT & PREVIOUS BUTTONS -->
   <div class="modal-overlay" id="modal-lightbox" onclick="AppModals.close('modal-lightbox')">
     <div class="lightbox-wrapper" onclick="event.stopPropagation()">
       <button type="button" class="close-btn-round" style="color: #fff; background: rgba(0,0,0,0.5); top: -42px; right: 0;" onclick="AppModals.close('modal-lightbox')">&times;</button>
-      <div class="lightbox-body" id="lightbox-mount"></div>
+      
+      <div class="lightbox-viewbox">
+        <button type="button" class="lightbox-nav-btn lightbox-nav-prev" onclick="MediaViewer.navigate(-1)" title="Previous Image">&#10094;</button>
+        <div class="lightbox-body" id="lightbox-mount"></div>
+        <button type="button" class="lightbox-nav-btn lightbox-nav-next" onclick="MediaViewer.navigate(1)" title="Next Image">&#10095;</button>
+      </div>
+
       <div class="lightbox-actions">
         <span id="lightbox-title" style="font-size: 0.95rem;"></span>
         <button class="btn-gold" onclick="MediaViewer.triggerDownload()">
@@ -748,7 +810,7 @@
 
   <script>
     const CONFIG = {
-      APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwZQIl-O21jWcBzcjvCGxG16o2fgItrM4k928k3eV61eVwJMa0XBc52fCQS3oYraW9t_Q/exec", // Paste your Apps Script deployment URL here
+      APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwZQIl-O21jWcBzcjvCGxG16o2fgItrM4k928k3eV61eVwJMa0XBc52fCQS3oYraW9t_Q/exec",
       BATCH_SIZE: 16
     };
 
@@ -858,7 +920,6 @@
 
       init() {
         this.renderSession();
-        // ZERO CACHING: Always prompt guest login on every single page load / refresh
         setTimeout(() => {
           AppModals.open('modal-guest-login');
         }, 300);
@@ -889,7 +950,6 @@
         }
       },
 
-      // Only triggered by clicking the submit button
       async submitGuestEntry(e) {
         e.preventDefault();
 
@@ -917,7 +977,6 @@
         btn.innerText = "Submitting & Entering...";
         btn.disabled = true;
 
-        // Dispatches details directly to your email
         if (CONFIG.APPS_SCRIPT_URL) {
           try {
             await fetch(CONFIG.APPS_SCRIPT_URL, {
@@ -1099,7 +1158,7 @@
           const brk = document.createElement('div');
           brk.className = 'pill-break';
           shelf.appendChild(brk);
-         
+
           Object.keys(currentTier.sections).forEach(sName => {
             const secBtn = document.createElement('button');
             secBtn.className = `pill-btn ${this.section === sName ? 'active' : ''}`;
@@ -1177,10 +1236,11 @@
         const slice = this.items.slice(this.pointer, this.pointer + CONFIG.BATCH_SIZE);
         const frag = document.createDocumentFragment();
 
-        slice.forEach(item => {
+        slice.forEach((item, index) => {
+          const globalIndex = this.pointer + index;
           const card = document.createElement('article');
           card.className = 'media-card';
-          card.onclick = () => MediaViewer.open(item);
+          card.onclick = () => MediaViewer.openByIndex(globalIndex);
 
           const img = document.createElement('img');
           img.src = item.thumbnail;
@@ -1221,14 +1281,17 @@
     };
 
     const MediaViewer = {
-      currentItem: null,
+      currentIndex: -1,
 
-      open(item) {
-        this.currentItem = item;
+      openByIndex(index) {
+        if (index < 0 || index >= GalleryStream.items.length) return;
+        this.currentIndex = index;
+        const item = GalleryStream.items[index];
+
         const mount = document.getElementById('lightbox-mount');
         const title = document.getElementById('lightbox-title');
         mount.innerHTML = '';
-        title.innerText = item.name;
+        title.innerText = `${item.name} (${index + 1} / ${GalleryStream.items.length})`;
 
         if (item.isVideo) {
           mount.innerHTML = `<iframe src="https://drive.google.com/file/d/${item.fileId}/preview" allow="autoplay" allowfullscreen></iframe>`;
@@ -1239,14 +1302,49 @@
           mount.appendChild(img);
         }
 
+        // Check if navigation buttons should be enabled/disabled
+        const prevBtn = document.querySelector('.lightbox-nav-prev');
+        const nextBtn = document.querySelector('.lightbox-nav-next');
+        if (prevBtn) prevBtn.style.display = GalleryStream.items.length > 1 ? 'flex' : 'none';
+        if (nextBtn) nextBtn.style.display = GalleryStream.items.length > 1 ? 'flex' : 'none';
+
         AppModals.open('modal-lightbox');
       },
 
+      navigate(direction) {
+        if (GalleryStream.items.length <= 1) return;
+        let newIndex = this.currentIndex + direction;
+
+        // Loop circularly: if at the end go to beginning, and vice versa
+        if (newIndex >= GalleryStream.items.length) {
+          newIndex = 0;
+        } else if (newIndex < 0) {
+          newIndex = GalleryStream.items.length - 1;
+        }
+
+        this.openByIndex(newIndex);
+      },
+
       triggerDownload() {
-        if (!this.currentItem) return;
-        AuthEngine.requestDownloadVerification(this.currentItem.fileId);
+        if (this.currentIndex < 0 || this.currentIndex >= GalleryStream.items.length) return;
+        const currentItem = GalleryStream.items[this.currentIndex];
+        AuthEngine.requestDownloadVerification(currentItem.fileId);
       }
     };
+
+    // Keyboard support for Left/Right arrows and ESC
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('modal-lightbox');
+      if (modal && modal.classList.contains('open')) {
+        if (e.key === 'ArrowLeft') {
+          MediaViewer.navigate(-1);
+        } else if (e.key === 'ArrowRight') {
+          MediaViewer.navigate(1);
+        } else if (e.key === 'Escape') {
+          AppModals.close('modal-lightbox');
+        }
+      }
+    });
 
     class GoldDustSystem {
       constructor(canvasId) {
