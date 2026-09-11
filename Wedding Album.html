@@ -1100,15 +1100,7 @@
           brk.className = 'pill-break';
           shelf.appendChild(brk);
 
-          const allBtn = document.createElement('button');
-          allBtn.className = `pill-btn ${this.section === 'All' ? 'active' : ''}`;
-          allBtn.onclick = () => {
-            this.section = 'All';
-            this.renderNavPills();
-            this.refreshMedia();
-          };
-          shelf.appendChild(allBtn);
-
+         
           Object.keys(currentTier.sections).forEach(sName => {
             const secBtn = document.createElement('button');
             secBtn.className = `pill-btn ${this.section === sName ? 'active' : ''}`;
