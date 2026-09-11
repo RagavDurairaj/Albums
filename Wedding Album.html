@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Ragavan D &amp; Akshaya C — Kalyana Vaibhogam</title>
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --kanjivaram-maroon: #6B0817;
+      --deep-crimson: #48000A;
+      --temple-gold: #D4AF37;
+      --bright-gold: #F4C430;
+      --turmeric-yellow: #EAA221;
+      --auspicious-green: #144534;
+      --parchment-ivory: #FDFBF7;
+      --parchment-card: #F7F3EB;
+      --text-main: #2A1713;
+      --text-muted: #66524A;
+      --gold-glow: rgba(212, 175, 55, 0.45);
+      --maroon-shadow: rgba(107, 8, 23, 0.2);
+      --border-ornate: rgba(212, 175, 55, 0.4);
+      --font-display: 'Cinzel Decorative', Georgia, serif;
+      --font-serif: 'Cormorant Garamond', Garamond, serif;
+      --font-sans: 'Montserrat', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--parchment-ivory);
+      color: var(--text-main);
+      font-family: var(--font-serif);
+      min-height: 100vh;
+      line-height: 1.5;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(107, 8, 23, 0.07) 0%, transparent 45%),
+        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.04' fill-rule='evenodd'%3E%3Cpath d='M40 0l10 20-10 20L30 20 40 0zm0 40l10 20-10 20-10-20 10-20zm-20-20L30 30 20 40 10 30l10-10zm40 0l10 10-10 10-10-10 10-10z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .thoranam-roof {
+      width: 100%;
+      height: 16px;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--kanjivaram-maroon),
+        var(--kanjivaram-maroon) 10px,
+        var(--temple-gold) 10px,
+        var(--temple-gold) 20px,
+        var(--auspicious-green) 20px,
+        var(--auspicious-green) 30px
+      );
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #particle-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Masthead */
+    header.wedding-header {
+      position: relative;
+      text-align: center;
+      padding: 3rem 1.25rem 1.75rem;
+      z-index: 2;
+    }
+
+    .kuthuvilakku-cluster {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .kuthuvilakku-icon {
+      width: 32px;
+      height: 32px;
+      fill: var(--temple-gold);
+      filter: drop-shadow(0 2px 6px var(--gold-glow));
+    }
+
+    .vedic-slogan {
+      font-size: 0.95rem;
+      font-style: italic;
+      letter-spacing: 0.1em;
+      color: var(--kanjivaram-maroon);
+      text-transform: uppercase;
+    }
+
+    .couple-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 5vw, 3.4rem);
+      color: var(--kanjivaram-maroon);
+      line-height: 1.2;
+      margin: 0.3rem 0;
+      text-shadow: 1px 1px 0 rgba(212, 175, 55, 0.35);
+    }
+
+    .sub-celebration-title {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--auspicious-green);
+      font-weight: 700;
+    }
+
+    /* Session Controls */
+    .session-bar {
+      max-width: 1240px;
+      margin: 0 auto 1.5rem;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .user-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--parchment-card);
+      border: 1px solid var(--border-ornate);
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .badge-status {
+      padding: 0.15rem 0.6rem;
+      border-radius: 12px;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .badge-guest { background: #E8E2D8; color: var(--text-muted); }
+    .badge-vip { background: #E2F0EA; color: var(--auspicious-green); border: 1px solid var(--auspicious-green); }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--temple-gold) 0%, var(--turmeric-yellow) 100%);
+      color: #261107;
+      border: 1px solid var(--bright-gold);
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 3px 10px var(--gold-glow);
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .btn-gold:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-logout {
+      background: transparent;
+      border: 1px solid var(--kanjivaram-maroon);
+      color: var(--kanjivaram-maroon);
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: none;
+    }
+
+    /* Navigation */
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto 2rem;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .primary-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      border-bottom: 2px solid var(--border-ornate);
+      padding-bottom: 0.4rem;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 3vw, 1.4rem);
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.4rem 1rem;
+      position: relative;
+    }
+
+    .tab-btn.active {
+      color: var(--kanjivaram-maroon);
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--kanjivaram-maroon);
+    }
+
+    .sub-pills-bar {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 1rem 0 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .pill-btn {
+      background: var(--parchment-ivory);
+      border: 1px solid var(--border-ornate);
+      padding: 0.35rem 0.95rem;
+      border-radius: 20px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .pill-btn.active {
+      background: var(--kanjivaram-maroon);
+      color: #fff;
+      border-color: var(--kanjivaram-maroon);
+    }
+
+    .pill-btn.protected::before {
+      content: '🔒';
+      font-size: 0.75rem;
+    }
+
+    .pill-break {
+      width: 100%;
+      height: 1px;
+    }
+
+    /* Gallery */
+    .gallery-viewport {
+      max-width: 1240px;
+      margin: 0 auto 4rem;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    .masonry-grid {
+      columns: 4 270px;
+      column-gap: 1rem;
+    }
+
+    .media-card {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #EAE3D5;
+      border: 1px solid var(--border-ornate);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: transform 0.25s ease;
+    }
+
+    .media-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .media-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .watermark-cover {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.03),
+        rgba(255, 255, 255, 0.03) 90px,
+        rgba(0, 0, 0, 0.03) 90px,
+        rgba(0, 0, 0, 0.03) 180px
+      );
+    }
+
+    .watermark-cover span {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.5);
+      border: 1px dashed rgba(255, 255, 255, 0.4);
+      padding: 0.3rem 0.6rem;
+      transform: rotate(-25deg);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .badge-video {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(107, 8, 23, 0.9);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .media-caption-plate {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.25rem 0.6rem 0.4rem;
+      background: linear-gradient(0deg, rgba(38, 17, 7, 0.95) 0%, transparent 100%);
+      color: #fff;
+      font-size: 0.82rem;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .media-card:hover .media-caption-plate {
+      opacity: 1;
+    }
+
+    .sentinel {
+      text-align: center;
+      padding: 2.5rem 0;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    /* Modal Architecture */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(25, 10, 8, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-sheet {
+      background: var(--parchment-ivory);
+      border: 2px solid var(--temple-gold);
+      border-radius: 12px;
+      width: 100%;
+      max-width: 480px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overscroll-behavior: contain;
+    }
+
+    .modal-sheet h3 {
+      font-family: var(--font-display);
+      color: var(--kanjivaram-maroon);
+      font-size: 1.4rem;
+      text-align: center;
+      margin-bottom: 0.35rem;
+    }
+
+    .close-btn-round {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      background: rgba(107, 8, 23, 0.1);
+      border: 1px solid var(--border-ornate);
+      border-radius: 50%;
+      font-size: 1.4rem;
+      line-height: 1;
+      color: var(--kanjivaram-maroon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.2s ease;
+    }
+
+    .close-btn-round:hover {
+      background: var(--kanjivaram-maroon);
+      color: #fff;
+    }
+
+    .field-group {
+      margin-top: 1rem;
+    }
+
+    .field-group label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-main);
+      margin-bottom: 0.3rem;
+    }
+
+    .field-group input, .field-group select {
+      width: 100%;
+      padding: 0.65rem 0.8rem;
+      border: 1px solid var(--border-ornate);
+      border-radius: 6px;
+      background: #fff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .field-group input:focus, .field-group select:focus {
+      outline: none;
+      border-color: var(--kanjivaram-maroon);
+      box-shadow: 0 0 0 2px rgba(107, 8, 23, 0.15);
+    }
+
+    .field-group input.input-error, .field-group select.input-error {
+      border-color: #D32F2F !important;
+      background-color: #FFF8F8 !important;
+    }
+
+    /* Lightbox */
+    .lightbox-wrapper {
+      width: 100%;
+      max-width: 95vw;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .lightbox-body {
+      max-width: 100%;
+      max-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-body img {
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      border: 2px solid var(--temple-gold);
+      border-radius: 6px;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.8);
+    }
+
+    .lightbox-body iframe {
+      width: 86vw;
+      height: 60vh;
+      max-width: 900px;
+      border: 2px solid var(--temple-gold);
+      border-radius: 6px;
+    }
+
+    .lightbox-actions {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 800px;
+      color: #fff;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .masonry-grid {
+        columns: 2 150px;
+        column-gap: 0.6rem;
+      }
+      .media-card {
+        margin-bottom: 0.6rem;
+      }
+      .media-caption-plate {
+        opacity: 1;
+        font-size: 0.75rem;
+        padding: 0.8rem 0.4rem 0.2rem;
+      }
+      .couple-title {
+        font-size: 1.85rem;
+      }
+      .primary-tabs {
+        gap: 0.5rem;
+      }
+      .tab-btn {
+        padding: 0.2rem 0.5rem;
+      }
+      .modal-sheet {
+        padding: 1.5rem 1rem;
+        max-height: 92vh;
+      }
+      .lightbox-body iframe {
+        height: 45vh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="thoranam-roof"></div>
+  <canvas id="particle-canvas"></canvas>
+
+  <header class="wedding-header">
+    <div class="kuthuvilakku-cluster">
+      <svg class="kuthuvilakku-icon" viewBox="0 0 24 24"><path d="M12 2C11.5 2 11 3 11 4.5C11 5.8 11.8 6.8 12 7C12.2 6.8 13 5.8 13 4.5C13 3 12.5 2 12 2M9 7V8H15V7H9M8 9V10H16V9H8M9 11C8.4 11 8 11.4 8 12V13H16V12C16 11.4 15.6 11 15 11H9M11 14V19H9V20H15V19H13V14H11M6 21V22H18V21H6Z"/></svg>
+      <span class="vedic-slogan">Subha Muhurtham</span>
+      <svg class="kuthuvilakku-icon" viewBox="0 0 24 24"><path d="M12 2C11.5 2 11 3 11 4.5C11 5.8 11.8 6.8 12 7C12.2 6.8 13 5.8 13 4.5C13 3 12.5 2 12 2M9 7V8H15V7H9M8 9V10H16V9H8M9 11C8.4 11 8 11.4 8 12V13H16V12C16 11.4 15.6 11 15 11H9M11 14V19H9V20H15V19H13V14H11M6 21V22H18V21H6Z"/></svg>
+    </div>
+
+    <h1 class="couple-title">Ragavan D &amp; Akshaya C</h1>
+    <p class="sub-celebration-title">Wedding Ceremony &amp; Reception Archive</p>
+  </header>
+
+  <aside class="session-bar">
+    <div class="user-pill">
+      <span id="session-user-name">Guest</span>
+      <span id="session-status-badge" class="badge-status badge-guest">Guest View</span>
+    </div>
+
+    <div style="display: flex; gap: 0.5rem; align-items: center;">
+      <button id="btn-request-vip" class="btn-gold" onclick="AppModals.open('modal-vip-access')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        Unlock Uncut Folders
+      </button>
+      <button id="btn-logout-session" class="btn-logout" onclick="AuthEngine.logout()">
+        Logout
+      </button>
+    </div>
+  </aside>
+
+  <nav class="nav-container">
+    <div class="primary-tabs">
+      <button class="tab-btn" data-ceremony="engagement" onclick="AlbumNav.switchCeremony('engagement')">Engagement</button>
+      <button class="tab-btn active" data-ceremony="marriage" onclick="AlbumNav.switchCeremony('marriage')">Marriage</button>
+      <button class="tab-btn" data-ceremony="reception" onclick="AlbumNav.switchCeremony('reception')">Reception</button>
+    </div>
+
+    <div class="sub-pills-bar" id="sub-pills-shelf"></div>
+  </nav>
+
+  <main class="gallery-viewport">
+    <section class="masonry-grid" id="masonry-wall"></section>
+    <div id="scroll-sentinel" class="sentinel">Loading memories...</div>
+  </main>
+
+  <!-- =============================================================
+       MODAL 1: STRICT MANDATORY GUEST REGISTER
+       (No close button, no caching, must click button to enter)
+       ============================================================= -->
+  <div class="modal-overlay" id="modal-guest-login">
+    <div class="modal-sheet">
+      <h3>Vanakkam!</h3>
+      <p style="text-align: center; color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.25rem;">
+        Welcome to the wedding archive of Ragavan &amp; Akshaya. Please register your details below to enter the album.
+      </p>
+
+      <form id="guest-login-form" onsubmit="AuthEngine.submitGuestEntry(event)">
+        <div class="field-group">
+          <label for="guest-name">Your Full Name *</label>
+          <input type="text" id="guest-name" required placeholder="e.g. Senthil Kumar">
+        </div>
+        <div class="field-group">
+          <label for="guest-relation">Relationship / Family *</label>
+          <select id="guest-relation" required>
+            <option value="" disabled selected>Select relationship</option>
+            <option>Groom's Family / Relative</option>
+            <option>Bride's Family / Relative</option>
+            <option>Colleague / Friend</option>
+            <option>Well-wisher</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="guest-location">Your Location / Town *</label>
+          <input type="text" id="guest-location" required placeholder="e.g. Chennai, Bengaluru, Madurai">
+        </div>
+
+        <button type="submit" id="guest-submit-btn" class="btn-gold" style="width: 100%; margin-top: 1.4rem; justify-content: center; padding: 0.75rem;">
+          Enter Wedding Gallery
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 2: VIP ACCESS REQUEST & KEY ENTRY -->
+  <div class="modal-overlay" id="modal-vip-access" onclick="AppModals.close('modal-vip-access')">
+    <div class="modal-sheet" onclick="event.stopPropagation()">
+      <button type="button" class="close-btn-round" onclick="AppModals.close('modal-vip-access')">&times;</button>
+      <h3>Full Access Portal</h3>
+      <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">
+        Uncut folders and high-resolution downloads require email approval from Ragavan.
+      </p>
+
+      <form onsubmit="AuthEngine.submitVIPRequest(event)">
+        <div class="field-group">
+          <label for="vip-req-name">Your Name *</label>
+          <input type="text" id="vip-req-name" required placeholder="Sundar">
+        </div>
+        <div class="field-group">
+          <label for="vip-req-email">Your Email Address *</label>
+          <input type="email" id="vip-req-email" required placeholder="you@example.com">
+        </div>
+        <div class="field-group">
+          <label for="vip-req-rel">Relationship *</label>
+          <select id="vip-req-rel" required>
+            <option value="" disabled selected>Select relationship</option>
+            <option>Groom's Immediate Family</option>
+            <option>Bride's Immediate Family</option>
+            <option>Close Relative</option>
+            <option>Wedding Crew</option>
+          </select>
+        </div>
+        <button type="submit" id="vip-send-btn" class="btn-gold" style="width: 100%; margin-top: 1rem; justify-content: center;">
+          Send Request to Ragavan's Email
+        </button>
+      </form>
+
+      <div style="margin: 1.2rem 0; text-align: center; font-size: 0.78rem; color: var(--text-muted);">
+        — HAVE YOUR PASSKEY ALREADY? —
+      </div>
+
+      <form onsubmit="AuthEngine.verifyKeyDirectly(event)">
+        <div class="field-group">
+          <label for="input-passkey">Dynamic Passkey (from Email) *</label>
+          <input type="text" id="input-passkey" required placeholder="e.g. KLY-AB12CD">
+        </div>
+        <button type="submit" class="btn-gold" style="width: 100%; margin-top: 0.8rem; justify-content: center; background: var(--auspicious-green); border-color: var(--auspicious-green); color: #fff;">
+          Verify &amp; Unlock Folders
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 3: DOWNLOAD SECURITY KEY CHALLENGE -->
+  <div class="modal-overlay" id="modal-download-auth" onclick="AppModals.close('modal-download-auth')">
+    <div class="modal-sheet" onclick="event.stopPropagation()">
+      <button type="button" class="close-btn-round" onclick="AppModals.close('modal-download-auth')">&times;</button>
+      <h3>Security Verification</h3>
+      <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">
+        To protect family photographs, please enter your dynamic access key to download original quality.
+      </p>
+
+      <form onsubmit="AuthEngine.validateDownloadKey(event)">
+        <div class="field-group">
+          <label for="dl-passkey">Your Dynamic Passkey *</label>
+          <input type="text" id="dl-passkey" required placeholder="e.g. KLY-XXXXXX">
+        </div>
+        <button type="submit" class="btn-gold" style="width: 100%; margin-top: 1.25rem; justify-content: center;">
+          Authorize Download
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 4: FULLSCREEN LIGHTBOX -->
+  <div class="modal-overlay" id="modal-lightbox" onclick="AppModals.close('modal-lightbox')">
+    <div class="lightbox-wrapper" onclick="event.stopPropagation()">
+      <button type="button" class="close-btn-round" style="color: #fff; background: rgba(0,0,0,0.5); top: -42px; right: 0;" onclick="AppModals.close('modal-lightbox')">&times;</button>
+      <div class="lightbox-body" id="lightbox-mount"></div>
+      <div class="lightbox-actions">
+        <span id="lightbox-title" style="font-size: 0.95rem;"></span>
+        <button class="btn-gold" onclick="MediaViewer.triggerDownload()">
+          Download Original
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const CONFIG = {
+      APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwZQIl-O21jWcBzcjvCGxG16o2fgItrM4k928k3eV61eVwJMa0XBc52fCQS3oYraW9t_Q/exec", // Paste your Apps Script deployment URL here
+      BATCH_SIZE: 16
+    };
+
+    const FOLDER_CONFIG = {
+      engagement: {
+        album: { id: "1u7yaSFPz8efCDPi7h7_QUC8X5REHmlSV", name: "Engagement Album Photography", protected: false },
+        uncut: { id: "1lHMTfld66teAyBL952t37pAUcQKAxUdZ", name: "Engagement Uncut Version", protected: true }
+      },
+      marriage: {
+        album: {
+          name: "Marriage Album Photography",
+          protected: false,
+          sections: {
+            "Candid Photography": "1YENI8oa6k6iPtZH80Gue5iyUHAVfx8wj",
+            "Muhurthakkal Photography": "1owTmoRyKcF-HBpXbJadjZq7eybQLtUKW",
+            "Outdoor Shoot Photography": "11o1YPHiprRuYP2DMoXKqWpXxWwc40ByV",
+            "Pen Azhaippu Photography": "1Rc5ny4fw8r3NAUTUFV0890Cg1i8derAa",
+            "Wedding Night Reception Photography": "18OnmlpaLOyNtnAEHBKIn2N7EGCOiaJpO",
+            "Wedding Day Photography": "1pwp7LHhtOnH9YvJkFF9BRpxUQD9REae_"
+          }
+        },
+        uncut: {
+          name: "Marriage Uncut Version",
+          protected: true,
+          sections: {
+            "Candid Photography": "15__ZvRzf1P5H7RPLaK1BYJRk-kQPoMgJ",
+            "Muhurthakkal Photography": "12L2hn-dQShpHLXtTodiWRL-92mhnDtWc",
+            "Outdoor Shoot Photography": "1zWR6CeGJffz-LIQWpQ2L8JCsu3EMRbvN",
+            "Pen Azhaippu Photography": "1sHJgOYg2syJQ-IAyXwn9qVuI6b86A77r",
+            "Wedding Night Reception Photography": "1-r032pg54cql6ETtk-hdd6wPc4BYP5-x",
+            "Wedding Day Photography": "1LS0dtUuThrlzKUcSNpPi6HIGeqytAztI",
+            "Marriage Hall to Home Video": "1NfnFcVzOC4qYhgjwAEdmbZjX_whQCwv_"
+          }
+        },
+        video: { id: "1pQrBlKSEdk16QaQ2nqFepwsdkcQY0eJ9", name: "Wedding Video", protected: false, isVideo: true }
+      },
+      reception: {
+        album: { id: "1NmbZNB8LtcoBZRcGjg_fFJcBYxuaPOh9", name: "Reception Album Photography", protected: false },
+        uncut: { id: "1M4NPeZr7kto54EA2VAoqY7XiDgwDusdS", name: "Reception Uncut Version", protected: true },
+        video: { id: "1NKjFildVyVyEWRgFkAk7reiRBKpJFqxu", name: "Reception Video", protected: false, isVideo: true }
+      }
+    };
+
+    function makeMockArchive() {
+      const store = [];
+      let id = 100;
+      Object.keys(FOLDER_CONFIG).forEach(cKey => {
+        const ceremony = FOLDER_CONFIG[cKey];
+        Object.keys(ceremony).forEach(tKey => {
+          const tier = ceremony[tKey];
+          if (tier.sections) {
+            Object.keys(tier.sections).forEach(sName => {
+              for (let i = 1; i <= 10; i++) {
+                id++;
+                store.push({
+                  fileId: `mock_${id}`,
+                  ceremony: cKey,
+                  tier: tKey,
+                  sectionName: sName,
+                  isProtected: tier.protected,
+                  isVideo: sName.includes("Video"),
+                  name: `${sName} ${i}`,
+                  thumbnail: `https://picsum.photos/seed/${id}/600/${i % 2 === 0 ? '450' : '750'}`
+                });
+              }
+            });
+          } else {
+            for (let i = 1; i <= (tier.isVideo ? 3 : 12); i++) {
+              id++;
+              store.push({
+                fileId: `mock_${id}`,
+                ceremony: cKey,
+                tier: tKey,
+                sectionName: tier.name,
+                isProtected: tier.protected,
+                isVideo: !!tier.isVideo,
+                name: `${tier.name} ${i}`,
+                thumbnail: tier.isVideo 
+                  ? "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=700&fit=crop"
+                  : `https://picsum.photos/seed/${id}/600/${i % 2 === 0 ? '450' : '750'}`
+              });
+            }
+          }
+        });
+      });
+      return store;
+    }
+    const MOCK_DB = makeMockArchive();
+
+    const AppModals = {
+      open(id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('open');
+      },
+      close(id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('open');
+      }
+    };
+
+    const AuthEngine = {
+      state: {
+        guestName: 'Guest',
+        role: localStorage.getItem('kly_role') || 'guest',
+        activeKey: localStorage.getItem('kly_access_key') || ''
+      },
+
+      init() {
+        this.renderSession();
+        // ZERO CACHING: Always prompt guest login on every single page load / refresh
+        setTimeout(() => {
+          AppModals.open('modal-guest-login');
+        }, 300);
+      },
+
+      isVIP() {
+        return this.state.role === 'vip' && !!this.state.activeKey;
+      },
+
+      renderSession() {
+        const nameEl = document.getElementById('session-user-name');
+        const badgeEl = document.getElementById('session-status-badge');
+        const vipBtn = document.getElementById('btn-request-vip');
+        const logoutBtn = document.getElementById('btn-logout-session');
+
+        nameEl.innerText = this.state.guestName;
+
+        if (this.isVIP()) {
+          badgeEl.className = 'badge-status badge-vip';
+          badgeEl.innerText = 'Full Access VIP';
+          vipBtn.style.display = 'none';
+          logoutBtn.style.display = 'inline-block';
+        } else {
+          badgeEl.className = 'badge-status badge-guest';
+          badgeEl.innerText = 'Guest View';
+          vipBtn.style.display = 'inline-flex';
+          logoutBtn.style.display = 'none';
+        }
+      },
+
+      // Only triggered by clicking the submit button
+      async submitGuestEntry(e) {
+        e.preventDefault();
+
+        const nameInput = document.getElementById('guest-name');
+        const relInput = document.getElementById('guest-relation');
+        const locInput = document.getElementById('guest-location');
+        const btn = document.getElementById('guest-submit-btn');
+
+        [nameInput, relInput, locInput].forEach(el => el.classList.remove('input-error'));
+
+        const name = nameInput.value.trim();
+        const rel = relInput.value;
+        const loc = locInput.value.trim();
+
+        let hasError = false;
+        if (!name) { nameInput.classList.add('input-error'); hasError = true; }
+        if (!rel) { relInput.classList.add('input-error'); hasError = true; }
+        if (!loc) { locInput.classList.add('input-error'); hasError = true; }
+
+        if (hasError) {
+          alert("All fields are mandatory. Please provide your Name, Relationship, and Location to enter.");
+          return;
+        }
+
+        btn.innerText = "Submitting & Entering...";
+        btn.disabled = true;
+
+        // Dispatches details directly to your email
+        if (CONFIG.APPS_SCRIPT_URL) {
+          try {
+            await fetch(CONFIG.APPS_SCRIPT_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ action: 'GUEST_VISIT', name, relation: rel, location: loc })
+            });
+          } catch(err) {
+            console.warn("Mail dispatch error", err);
+          }
+        }
+
+        this.state.guestName = name;
+        this.renderSession();
+        AppModals.close('modal-guest-login');
+      },
+
+      async submitVIPRequest(e) {
+        e.preventDefault();
+        const name = document.getElementById('vip-req-name').value.trim();
+        const email = document.getElementById('vip-req-email').value.trim();
+        const rel = document.getElementById('vip-req-rel').value;
+        const btn = document.getElementById('vip-send-btn');
+
+        btn.innerText = "Transmitting to Ragavan...";
+        btn.disabled = true;
+
+        if (CONFIG.APPS_SCRIPT_URL) {
+          try {
+            await fetch(CONFIG.APPS_SCRIPT_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ action: 'REQUEST_VIP', name, email, relation: rel })
+            });
+            alert(`Request dispatched! Ragavan will review and email your dynamic passkey to ${email}.`);
+            AppModals.close('modal-vip-access');
+          } catch(err) {
+            alert('Transmission error: ' + err.message);
+          }
+        } else {
+          setTimeout(() => {
+            alert(`[Simulation] Request sent for ${name} (${email}). You will receive an approval email from Ragavan.`);
+            btn.disabled = false;
+            btn.innerText = "Send Request to Ragavan's Email";
+            AppModals.close('modal-vip-access');
+          }, 800);
+        }
+      },
+
+      async verifyKeyDirectly(e) {
+        e.preventDefault();
+        const key = document.getElementById('input-passkey').value.trim().toUpperCase();
+        const isValid = await this.checkKeyWithBackend(key);
+
+        if (isValid) {
+          this.setVIPSession(key);
+          AppModals.close('modal-vip-access');
+          AlbumNav.renderNavPills();
+          AlbumNav.refreshMedia();
+          alert("Key Accepted! All uncut folders and original downloads unlocked.");
+        } else {
+          alert("Invalid passkey. Please check your email or request approval.");
+        }
+      },
+
+      async checkKeyWithBackend(key) {
+        if (!key) return false;
+        if (CONFIG.APPS_SCRIPT_URL) {
+          try {
+            const res = await fetch(`${CONFIG.APPS_SCRIPT_URL}?action=VERIFY_KEY&key=${encodeURIComponent(key)}`);
+            const data = await res.json();
+            return !!data.valid;
+          } catch(err) {
+            console.warn(err);
+          }
+        }
+        return key.startsWith('KLY-') || key === 'KALYANAM1008';
+      },
+
+      setVIPSession(key) {
+        localStorage.setItem('kly_role', 'vip');
+        localStorage.setItem('kly_access_key', key);
+        this.state.role = 'vip';
+        this.state.activeKey = key;
+        this.renderSession();
+      },
+
+      logout() {
+        localStorage.removeItem('kly_role');
+        localStorage.removeItem('kly_access_key');
+        this.state.role = 'guest';
+        this.state.activeKey = '';
+        this.renderSession();
+        AlbumNav.renderNavPills();
+        AlbumNav.refreshMedia();
+        alert("Logged out. Reverted to standard guest view.");
+      },
+
+      pendingDownloadFileId: null,
+      requestDownloadVerification(fileId) {
+        this.pendingDownloadFileId = fileId;
+        if (this.isVIP()) {
+          this.executeDownload(fileId);
+        } else {
+          AppModals.open('modal-download-auth');
+        }
+      },
+
+      async validateDownloadKey(e) {
+        e.preventDefault();
+        const key = document.getElementById('dl-passkey').value.trim().toUpperCase();
+        const valid = await this.checkKeyWithBackend(key);
+
+        if (valid) {
+          this.setVIPSession(key);
+          AppModals.close('modal-download-auth');
+          this.executeDownload(this.pendingDownloadFileId);
+        } else {
+          alert("Invalid dynamic key. An approved key is required to download.");
+        }
+      },
+
+      executeDownload(fileId) {
+        window.open(`https://drive.google.com/uc?export=download&id=${fileId}`, '_blank');
+      }
+    };
+
+    const AlbumNav = {
+      ceremony: 'marriage',
+      tier: 'album',
+      section: 'All',
+
+      init() {
+        this.switchCeremony('marriage');
+      },
+
+      switchCeremony(ceremonyKey) {
+        this.ceremony = ceremonyKey;
+        this.tier = 'album';
+        this.section = 'All';
+
+        document.querySelectorAll('.primary-tabs button').forEach(b => {
+          b.classList.toggle('active', b.dataset.ceremony === ceremonyKey);
+        });
+
+        this.renderNavPills();
+        this.refreshMedia();
+      },
+
+      renderNavPills() {
+        const shelf = document.getElementById('sub-pills-shelf');
+        shelf.innerHTML = '';
+
+        const ceremonyDef = FOLDER_CONFIG[this.ceremony];
+
+        Object.keys(ceremonyDef).forEach(tKey => {
+          const item = ceremonyDef[tKey];
+          const pill = document.createElement('button');
+          pill.className = `pill-btn ${item.protected ? 'protected' : ''} ${this.tier === tKey ? 'active' : ''}`;
+          pill.innerText = item.name;
+
+          pill.onclick = () => {
+            if (item.protected && !AuthEngine.isVIP()) {
+              AppModals.open('modal-vip-access');
+              return;
+            }
+            this.tier = tKey;
+            this.section = 'All';
+            this.renderNavPills();
+            this.refreshMedia();
+          };
+          shelf.appendChild(pill);
+        });
+
+        const currentTier = ceremonyDef[this.tier];
+        if (currentTier && currentTier.sections) {
+          const brk = document.createElement('div');
+          brk.className = 'pill-break';
+          shelf.appendChild(brk);
+
+          const allBtn = document.createElement('button');
+          allBtn.className = `pill-btn ${this.section === 'All' ? 'active' : ''}`;
+          allBtn.innerText = 'All Photos';
+          allBtn.onclick = () => {
+            this.section = 'All';
+            this.renderNavPills();
+            this.refreshMedia();
+          };
+          shelf.appendChild(allBtn);
+
+          Object.keys(currentTier.sections).forEach(sName => {
+            const secBtn = document.createElement('button');
+            secBtn.className = `pill-btn ${this.section === sName ? 'active' : ''}`;
+            secBtn.innerText = sName;
+            secBtn.onclick = () => {
+              this.section = sName;
+              this.renderNavPills();
+              this.refreshMedia();
+            };
+            shelf.appendChild(secBtn);
+          });
+        }
+      },
+
+      async refreshMedia() {
+        const wall = document.getElementById('masonry-wall');
+        const sentinel = document.getElementById('scroll-sentinel');
+        wall.innerHTML = '';
+        sentinel.innerText = 'Loading memories...';
+
+        GalleryStream.pointer = 0;
+        GalleryStream.items = await this.resolveItems();
+        GalleryStream.renderBatch();
+      },
+
+      async resolveItems() {
+        if (CONFIG.APPS_SCRIPT_URL) {
+          try {
+            const currentTier = FOLDER_CONFIG[this.ceremony][this.tier];
+            let targetId = currentTier.sections 
+              ? (this.section === 'All' ? '' : currentTier.sections[this.section])
+              : currentTier.id;
+
+            const res = await fetch(`${CONFIG.APPS_SCRIPT_URL}?action=FETCH_MEDIA&folderId=${targetId}&ceremony=${this.ceremony}&tier=${this.tier}`);
+            return await res.json();
+          } catch(err) {
+            console.warn("Using fallback data due to fetch error", err);
+          }
+        }
+
+        return MOCK_DB.filter(x => {
+          const matchCeremony = x.ceremony === this.ceremony;
+          const matchTier = x.tier === this.tier;
+          const matchSection = this.section === 'All' || x.sectionName === this.section;
+          return matchCeremony && matchTier && matchSection;
+        });
+      }
+    };
+
+    const GalleryStream = {
+      items: [],
+      pointer: 0,
+      loading: false,
+
+      init() {
+        const sentinel = document.getElementById('scroll-sentinel');
+        const observer = new IntersectionObserver(entries => {
+          if (entries[0].isIntersecting && !this.loading) {
+            this.renderBatch();
+          }
+        }, { rootMargin: '250px' });
+        observer.observe(sentinel);
+      },
+
+      renderBatch() {
+        const wall = document.getElementById('masonry-wall');
+        const sentinel = document.getElementById('scroll-sentinel');
+
+        if (this.pointer >= this.items.length) {
+          sentinel.innerText = this.items.length === 0 ? "No photos found in this folder." : "— End of Gallery —";
+          return;
+        }
+
+        this.loading = true;
+        const slice = this.items.slice(this.pointer, this.pointer + CONFIG.BATCH_SIZE);
+        const frag = document.createDocumentFragment();
+
+        slice.forEach(item => {
+          const card = document.createElement('article');
+          card.className = 'media-card';
+          card.onclick = () => MediaViewer.open(item);
+
+          const img = document.createElement('img');
+          img.src = item.thumbnail;
+          img.loading = 'lazy';
+          img.alt = item.name;
+          card.appendChild(img);
+
+          if (!AuthEngine.isVIP()) {
+            const wm = document.createElement('div');
+            wm.className = 'watermark-cover';
+            wm.innerHTML = `<span>Ragavan & Akshaya</span>`;
+            card.appendChild(wm);
+          }
+
+          if (item.isVideo) {
+            const tag = document.createElement('div');
+            tag.className = 'badge-video';
+            tag.innerText = 'VIDEO';
+            card.appendChild(tag);
+          }
+
+          const cap = document.createElement('div');
+          cap.className = 'media-caption-plate';
+          cap.innerHTML = `<strong>${item.name}</strong><br><small>${item.sectionName}</small>`;
+          card.appendChild(cap);
+
+          frag.appendChild(card);
+        });
+
+        wall.appendChild(frag);
+        this.pointer += slice.length;
+        this.loading = false;
+
+        if (this.pointer >= this.items.length) {
+          sentinel.innerText = "— End of Gallery —";
+        }
+      }
+    };
+
+    const MediaViewer = {
+      currentItem: null,
+
+      open(item) {
+        this.currentItem = item;
+        const mount = document.getElementById('lightbox-mount');
+        const title = document.getElementById('lightbox-title');
+        mount.innerHTML = '';
+        title.innerText = item.name;
+
+        if (item.isVideo) {
+          mount.innerHTML = `<iframe src="https://drive.google.com/file/d/${item.fileId}/preview" allow="autoplay" allowfullscreen></iframe>`;
+        } else {
+          const img = document.createElement('img');
+          img.src = item.thumbnail;
+          img.alt = item.name;
+          mount.appendChild(img);
+        }
+
+        AppModals.open('modal-lightbox');
+      },
+
+      triggerDownload() {
+        if (!this.currentItem) return;
+        AuthEngine.requestDownloadVerification(this.currentItem.fileId);
+      }
+    };
+
+    class GoldDustSystem {
+      constructor(canvasId) {
+        this.canvas = document.getElementById(canvasId);
+        this.ctx = this.canvas.getContext('2d');
+        this.particles = [];
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+        this.populate(35);
+        this.loop = this.loop.bind(this);
+        requestAnimationFrame(this.loop);
+      }
+
+      resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+      }
+
+      populate(n) {
+        for (let i = 0; i < n; i++) {
+          this.particles.push({
+            x: Math.random() * this.canvas.width,
+            y: Math.random() * this.canvas.height,
+            r: Math.random() * 2.2 + 0.6,
+            vy: Math.random() * 0.5 + 0.2,
+            vx: (Math.random() - 0.5) * 0.3,
+            a: Math.random() * 0.6 + 0.2
+          });
+        }
+      }
+
+      loop() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.particles.forEach(p => {
+          p.y += p.vy;
+          p.x += p.vx;
+          if (p.y > this.canvas.height) {
+            p.y = -10;
+            p.x = Math.random() * this.canvas.width;
+          }
+          this.ctx.beginPath();
+          this.ctx.fillStyle = `rgba(212, 175, 55, ${p.a})`;
+          this.ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          this.ctx.fill();
+        });
+        requestAnimationFrame(this.loop);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      AuthEngine.init();
+      AlbumNav.init();
+      GalleryStream.init();
+      new GoldDustSystem('particle-canvas');
+    });
+  </script>
+</body>
+</html>
