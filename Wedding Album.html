@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Ragavan D &amp; Akshaya C — Kalyana Vaibhogam</title>
 
-  <!-- Typography -->
+  <!-- Google Fonts: Traditional Display & Serif Pairing -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -18,13 +18,15 @@
       --bright-gold: #F4C430;
       --turmeric-yellow: #EAA221;
       --auspicious-green: #144534;
+      --emerald-accent: #1E6B52;
       --parchment-ivory: #FDFBF7;
-      --parchment-card: #F7F3EB;
+      --parchment-card: #F8F4EC;
       --text-main: #2A1713;
       --text-muted: #66524A;
       --gold-glow: rgba(212, 175, 55, 0.45);
-      --maroon-shadow: rgba(107, 8, 23, 0.2);
-      --border-ornate: rgba(212, 175, 55, 0.4);
+      --emerald-glow: rgba(20, 69, 52, 0.35);
+      --maroon-shadow: rgba(107, 8, 23, 0.25);
+      --border-ornate: rgba(212, 175, 55, 0.45);
       --font-display: 'Cinzel Decorative', Georgia, serif;
       --font-serif: 'Cormorant Garamond', Garamond, serif;
       --font-sans: 'Montserrat', sans-serif;
@@ -45,27 +47,27 @@
       line-height: 1.5;
       overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
-        radial-gradient(circle at 85% 85%, rgba(107, 8, 23, 0.07) 0%, transparent 45%),
-        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.04' fill-rule='evenodd'%3E%3Cpath d='M40 0l10 20-10 20L30 20 40 0zm0 40l10 20-10 20-10-20 10-20zm-20-20L30 30 20 40 10 30l10-10zm40 0l10 10-10 10-10-10 10-10z'/%3E%3C/g%3E%3C/svg%3E");
+        radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(107, 8, 23, 0.1) 0%, transparent 45%),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 L65 35 L100 50 L65 65 L50 100 L35 65 L0 50 L35 35 Z' fill='none' stroke='%23d4af37' stroke-width='0.7' stroke-opacity='0.15'/%3E%3C/svg%3E");
     }
 
-    .thoranam-roof {
+    .temple-gopuram-border {
       width: 100%;
-      height: 16px;
+      height: 20px;
       background: repeating-linear-gradient(
         -45deg,
         var(--kanjivaram-maroon),
-        var(--kanjivaram-maroon) 10px,
-        var(--temple-gold) 10px,
-        var(--temple-gold) 20px,
-        var(--auspicious-green) 20px,
-        var(--auspicious-green) 30px
+        var(--kanjivaram-maroon) 12px,
+        var(--temple-gold) 12px,
+        var(--temple-gold) 24px,
+        var(--auspicious-green) 24px,
+        var(--auspicious-green) 36px
       );
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
     }
 
     #particle-canvas {
@@ -75,58 +77,80 @@
       z-index: 1;
     }
 
-    /* Masthead */
     header.wedding-header {
       position: relative;
       text-align: center;
-      padding: 3rem 1.25rem 1.75rem;
+      padding: 3.5rem 1.5rem 2rem;
       z-index: 2;
+      background: linear-gradient(180deg, rgba(107, 8, 23, 0.06) 0%, transparent 100%);
     }
 
     .kuthuvilakku-cluster {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.25rem;
       margin-bottom: 0.75rem;
     }
 
     .kuthuvilakku-icon {
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       fill: var(--temple-gold);
-      filter: drop-shadow(0 2px 6px var(--gold-glow));
+      filter: drop-shadow(0 2px 8px var(--gold-glow));
+      animation: flamePulse 2.5s infinite alternate ease-in-out;
+    }
+
+    @keyframes flamePulse {
+      0% { transform: scale(0.97); filter: drop-shadow(0 0 4px var(--gold-glow)); }
+      100% { transform: scale(1.03); filter: drop-shadow(0 0 12px rgba(244, 196, 48, 0.8)); }
     }
 
     .vedic-slogan {
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       font-style: italic;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       color: var(--kanjivaram-maroon);
       text-transform: uppercase;
+      font-weight: 600;
     }
 
     .couple-title {
       font-family: var(--font-display);
-      font-size: clamp(1.8rem, 5vw, 3.4rem);
+      font-size: clamp(2rem, 5.5vw, 3.8rem);
       color: var(--kanjivaram-maroon);
       line-height: 1.2;
-      margin: 0.3rem 0;
-      text-shadow: 1px 1px 0 rgba(212, 175, 55, 0.35);
+      margin: 0.4rem 0;
+      text-shadow: 2px 2px 0 rgba(212, 175, 55, 0.4);
     }
 
     .sub-celebration-title {
       font-family: var(--font-sans);
-      font-size: 0.8rem;
-      letter-spacing: 0.25em;
+      font-size: 0.85rem;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--auspicious-green);
       font-weight: 700;
     }
 
-    /* Session Controls */
+    .kolam-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      max-width: 420px;
+      margin: 1.2rem auto 0;
+    }
+
+    .kolam-divider::before, .kolam-divider::after {
+      content: '';
+      flex: 1;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--temple-gold), transparent);
+    }
+
     .session-bar {
-      max-width: 1240px;
+      max-width: 1280px;
       margin: 0 auto 1.5rem;
       padding: 0 1rem;
       display: flex;
@@ -144,17 +168,17 @@
       gap: 0.5rem;
       background: var(--parchment-card);
       border: 1px solid var(--border-ornate);
-      padding: 0.4rem 1rem;
+      padding: 0.4rem 1.1rem;
       border-radius: 999px;
-      font-size: 0.85rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      font-size: 0.9rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
     .badge-status {
-      padding: 0.15rem 0.6rem;
+      padding: 0.2rem 0.65rem;
       border-radius: 12px;
       font-family: var(--font-sans);
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
     }
@@ -166,7 +190,7 @@
       background: linear-gradient(135deg, var(--temple-gold) 0%, var(--turmeric-yellow) 100%);
       color: #261107;
       border: 1px solid var(--bright-gold);
-      padding: 0.5rem 1.2rem;
+      padding: 0.55rem 1.25rem;
       border-radius: 6px;
       font-family: var(--font-sans);
       font-size: 0.82rem;
@@ -177,19 +201,38 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      box-shadow: 0 3px 10px var(--gold-glow);
+      box-shadow: 0 3px 12px var(--gold-glow);
       transition: transform 0.2s ease, filter 0.2s ease;
     }
 
     .btn-gold:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.05);
+      transform: translateY(-2px);
+      filter: brightness(1.08);
     }
 
-    .btn-gold:disabled {
-      opacity: 0.65;
-      cursor: not-allowed;
-      transform: none;
+    .btn-gold-secondary {
+      background: rgba(38, 17, 7, 0.85);
+      border: 1px solid var(--temple-gold);
+      color: var(--temple-gold);
+      padding: 0.55rem 1.25rem;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-gold-secondary:hover {
+      background: var(--kanjivaram-maroon);
+      color: #fff;
+      border-color: var(--bright-gold);
+      transform: translateY(-1px);
     }
 
     .btn-logout {
@@ -203,11 +246,16 @@
       font-weight: 600;
       cursor: pointer;
       display: none;
+      transition: all 0.2s ease;
     }
 
-    /* Navigation */
+    .btn-logout:hover {
+      background: var(--kanjivaram-maroon);
+      color: #fff;
+    }
+
     .nav-container {
-      max-width: 1240px;
+      max-width: 1280px;
       margin: 0 auto 2rem;
       padding: 0 1rem;
       position: relative;
@@ -217,21 +265,22 @@
     .primary-tabs {
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.25rem;
       border-bottom: 2px solid var(--border-ornate);
-      padding-bottom: 0.4rem;
+      padding-bottom: 0.5rem;
     }
 
     .tab-btn {
       background: none;
       border: none;
       font-family: var(--font-display);
-      font-size: clamp(1.05rem, 3vw, 1.4rem);
+      font-size: clamp(1.1rem, 3.2vw, 1.5rem);
       font-weight: 700;
       color: var(--text-muted);
       cursor: pointer;
-      padding: 0.4rem 1rem;
+      padding: 0.4rem 1.2rem;
       position: relative;
+      transition: color 0.2s ease;
     }
 
     .tab-btn.active {
@@ -241,11 +290,12 @@
     .tab-btn.active::after {
       content: '';
       position: absolute;
-      bottom: -0.5rem;
+      bottom: -0.6rem;
       left: 0;
       width: 100%;
-      height: 3px;
+      height: 3.5px;
       background: var(--kanjivaram-maroon);
+      box-shadow: 0 2px 8px var(--maroon-shadow);
     }
 
     .sub-pills-bar {
@@ -258,28 +308,30 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    .pill-btn {
-      background: var(--parchment-ivory);
-      border: 1px solid var(--border-ornate);
-      padding: 0.35rem 0.95rem;
-      border-radius: 20px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--text-main);
+    .pill-tier {
+      background: #FFF;
+      border: 1.5px solid var(--temple-gold);
+      padding: 0.4rem 1.1rem;
+      border-radius: 24px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--kanjivaram-maroon);
       cursor: pointer;
       transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.35rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
     }
 
-    .pill-btn.active {
+    .pill-tier.active {
       background: var(--kanjivaram-maroon);
-      color: #fff;
+      color: #FFF;
       border-color: var(--kanjivaram-maroon);
+      box-shadow: 0 3px 10px var(--maroon-shadow);
     }
 
-    .pill-btn.protected::before {
+    .pill-tier.protected::before {
       content: '🔒';
       font-size: 0.75rem;
     }
@@ -287,43 +339,82 @@
     .pill-break {
       width: 100%;
       height: 1px;
+      margin: 0.3rem 0;
     }
 
-    /* Gallery */
+    .pill-subfolder {
+      background: #F2F8F5;
+      border: 1.5px solid var(--emerald-accent);
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--auspicious-green);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .pill-subfolder:hover {
+      background: #E1EFEA;
+    }
+
+    .pill-subfolder.active {
+      background: var(--auspicious-green);
+      color: #FFF;
+      border-color: var(--auspicious-green);
+      box-shadow: 0 3px 10px var(--emerald-glow);
+    }
+
     .gallery-viewport {
-      max-width: 1240px;
+      max-width: 1300px;
       margin: 0 auto 4rem;
       padding: 0 1rem;
       position: relative;
       z-index: 5;
     }
 
+    .photo-count-badge {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: var(--kanjivaram-maroon);
+      font-weight: 700;
+      font-family: var(--font-sans);
+      letter-spacing: 0.05em;
+    }
+
     .masonry-grid {
       columns: 4 270px;
-      column-gap: 1rem;
+      column-gap: 1.1rem;
     }
 
     .media-card {
       break-inside: avoid;
-      margin-bottom: 1rem;
+      margin-bottom: 1.1rem;
       position: relative;
       border-radius: 8px;
       overflow: hidden;
       background: #EAE3D5;
       border: 1px solid var(--border-ornate);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 16px rgba(107, 8, 23, 0.08);
       cursor: pointer;
-      transition: transform 0.25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      min-height: 180px;
     }
 
     .media-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px var(--maroon-shadow);
     }
 
     .media-card img {
       width: 100%;
       height: auto;
       display: block;
+      background: #EDE6DB;
     }
 
     .watermark-cover {
@@ -345,7 +436,7 @@
     .watermark-cover span {
       font-family: var(--font-display);
       font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.55);
       border: 1px dashed rgba(255, 255, 255, 0.4);
       padding: 0.3rem 0.6rem;
       transform: rotate(-25deg);
@@ -385,16 +476,16 @@
 
     .sentinel {
       text-align: center;
-      padding: 2.5rem 0;
+      padding: 3rem 0;
       font-style: italic;
       color: var(--text-muted);
+      font-size: 1.05rem;
     }
 
-    /* Modal Architecture */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(25, 10, 8, 0.94);
+      background: rgba(25, 10, 8, 0.92);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       z-index: 2000;
@@ -496,15 +587,43 @@
       background-color: #FFF8F8 !important;
     }
 
-    /* Lightbox & Navigation Controls */
     .lightbox-wrapper {
       width: 100%;
-      max-width: 95vw;
-      max-height: 92vh;
+      max-width: 96vw;
+      max-height: 94vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
+    }
+
+    .lightbox-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      z-index: 101;
+    }
+
+    .zoom-btn {
+      background: rgba(38, 17, 7, 0.85);
+      border: 1px solid var(--temple-gold);
+      color: var(--temple-gold);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .zoom-btn:hover {
+      background: var(--kanjivaram-maroon);
+      color: #fff;
     }
 
     .lightbox-viewbox {
@@ -513,24 +632,34 @@
       align-items: center;
       justify-content: center;
       max-width: 100%;
+      overflow: hidden;
+      touch-action: none;
     }
 
     .lightbox-body {
       max-width: 100%;
-      max-height: 75vh;
+      max-height: 72vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
 
     .lightbox-body img {
       max-width: 100%;
-      max-height: 75vh;
+      max-height: 72vh;
       object-fit: contain;
       border: 2px solid var(--temple-gold);
       border-radius: 6px;
       box-shadow: 0 5px 30px rgba(0,0,0,0.8);
       user-select: none;
+      transform-origin: center center;
+      transition: transform 0.15s ease-out;
+      cursor: grab;
+    }
+
+    .lightbox-body img:active {
+      cursor: grabbing;
     }
 
     .lightbox-body iframe {
@@ -549,7 +678,7 @@
       height: 46px;
       border-radius: 50%;
       background: rgba(38, 17, 7, 0.75);
-      border: 1px solid var(--temple-gold);
+      border: 1.5px solid var(--temple-gold);
       color: var(--temple-gold);
       font-size: 1.6rem;
       display: flex;
@@ -578,14 +707,21 @@
     }
 
     .lightbox-actions {
-      margin-top: 1rem;
+      margin-top: 0.75rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      max-width: 800px;
+      max-width: 850px;
       color: #fff;
-      gap: 1rem;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .lightbox-buttons-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       flex-wrap: wrap;
     }
 
@@ -630,23 +766,32 @@
       .lightbox-nav-next {
         right: 8px;
       }
+      .lightbox-actions {
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="thoranam-roof"></div>
+  <div class="temple-gopuram-border"></div>
   <canvas id="particle-canvas"></canvas>
 
   <header class="wedding-header">
     <div class="kuthuvilakku-cluster">
       <svg class="kuthuvilakku-icon" viewBox="0 0 24 24"><path d="M12 2C11.5 2 11 3 11 4.5C11 5.8 11.8 6.8 12 7C12.2 6.8 13 5.8 13 4.5C13 3 12.5 2 12 2M9 7V8H15V7H9M8 9V10H16V9H8M9 11C8.4 11 8 11.4 8 12V13H16V12C16 11.4 15.6 11 15 11H9M11 14V19H9V20H15V19H13V14H11M6 21V22H18V21H6Z"/></svg>
-      <span class="vedic-slogan">Subha Muhurtham</span>
+      <span class="vedic-slogan">Subha Muhurtham &bull; Mangalya Dharanam</span>
       <svg class="kuthuvilakku-icon" viewBox="0 0 24 24"><path d="M12 2C11.5 2 11 3 11 4.5C11 5.8 11.8 6.8 12 7C12.2 6.8 13 5.8 13 4.5C13 3 12.5 2 12 2M9 7V8H15V7H9M8 9V10H16V9H8M9 11C8.4 11 8 11.4 8 12V13H16V12C16 11.4 15.6 11 15 11H9M11 14V19H9V20H15V19H13V14H11M6 21V22H18V21H6Z"/></svg>
     </div>
 
     <h1 class="couple-title">Ragavan D &amp; Akshaya C</h1>
-    <p class="sub-celebration-title">Wedding Ceremony &amp; Reception Archive</p>
+    <p class="sub-celebration-title">South Indian Traditional Wedding Ceremony &amp; Reception Archive</p>
+
+    <div class="kolam-divider">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--temple-gold)">
+        <polygon points="12,2 15,9 22,12 15,15 12,22 9,15 2,12 9,9" />
+      </svg>
+    </div>
   </header>
 
   <aside class="session-bar">
@@ -677,18 +822,17 @@
   </nav>
 
   <main class="gallery-viewport">
+    <div id="photo-count-tracker" class="photo-count-badge"></div>
     <section class="masonry-grid" id="masonry-wall"></section>
     <div id="scroll-sentinel" class="sentinel">Loading memories...</div>
   </main>
 
-  <!-- =============================================================
-       MODAL 1: STRICT MANDATORY GUEST REGISTER
-       ============================================================= -->
+  <!-- MODAL 1: STRICT MANDATORY GUEST REGISTER -->
   <div class="modal-overlay" id="modal-guest-login">
     <div class="modal-sheet">
       <h3>Vanakkam!</h3>
       <p style="text-align: center; color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.25rem;">
-        Welcome to the wedding archive of Ragavan &amp; Akshaya. Please register your details below to enter the album.
+        Welcome to the wedding memories of Ragavan &amp; Akshaya. Please register your details to enter the digital album.
       </p>
 
       <form id="guest-login-form" onsubmit="AuthEngine.submitGuestEntry(event)">
@@ -700,10 +844,14 @@
           <label for="guest-relation">Relationship / Family *</label>
           <select id="guest-relation" required>
             <option value="" disabled selected>Select relationship</option>
-            <option>Groom's Family / Relative</option>
-            <option>Bride's Family / Relative</option>
+            <option>Groom (Ragavan D)</option>
+            <option>Bride (Akshaya C)</option>
+            <option>Groom's Immediate Family</option>
+            <option>Bride's Immediate Family</option>
+            <option>Groom's Relative</option>
+            <option>Bride's Relative</option>
             <option>Colleague / Friend</option>
-            <option>Well-wisher</option>
+            <option>Wedding Guest / Well-wisher</option>
           </select>
         </div>
         <div class="field-group">
@@ -740,6 +888,8 @@
           <label for="vip-req-rel">Relationship *</label>
           <select id="vip-req-rel" required>
             <option value="" disabled selected>Select relationship</option>
+            <option>Groom (Ragavan D)</option>
+            <option>Bride (Akshaya C)</option>
             <option>Groom's Immediate Family</option>
             <option>Bride's Immediate Family</option>
             <option>Close Relative</option>
@@ -788,30 +938,45 @@
     </div>
   </div>
 
-  <!-- MODAL 4: FULLSCREEN LIGHTBOX WITH NEXT & PREVIOUS BUTTONS -->
+  <!-- MODAL 4: FULLSCREEN LIGHTBOX -->
   <div class="modal-overlay" id="modal-lightbox" onclick="AppModals.close('modal-lightbox')">
     <div class="lightbox-wrapper" onclick="event.stopPropagation()">
-      <button type="button" class="close-btn-round" style="color: #fff; background: rgba(0,0,0,0.5); top: -42px; right: 0;" onclick="AppModals.close('modal-lightbox')">&times;</button>
+      <button type="button" class="close-btn-round" style="color: #fff; background: rgba(0,0,0,0.6); top: -42px; right: 0;" onclick="AppModals.close('modal-lightbox')">&times;</button>
       
-      <div class="lightbox-viewbox">
-        <button type="button" class="lightbox-nav-btn lightbox-nav-prev" onclick="MediaViewer.navigate(-1)" title="Previous Image">&#10094;</button>
+      <div class="lightbox-toolbar">
+        <button type="button" class="zoom-btn" onclick="MediaViewer.zoomIn()" title="Zoom In">+</button>
+        <button type="button" class="zoom-btn" onclick="MediaViewer.zoomOut()" title="Zoom Out">&minus;</button>
+        <button type="button" class="zoom-btn" onclick="MediaViewer.resetZoom()" style="font-size: 0.8rem; width: auto; padding: 0 8px; border-radius: 18px;" title="Reset Zoom">Reset</button>
+      </div>
+
+      <div class="lightbox-viewbox" id="lightbox-touch-area">
+        <button type="button" class="lightbox-nav-btn lightbox-nav-prev" onclick="MediaViewer.navigate(-1)" title="Previous">&#10094;</button>
         <div class="lightbox-body" id="lightbox-mount"></div>
-        <button type="button" class="lightbox-nav-btn lightbox-nav-next" onclick="MediaViewer.navigate(1)" title="Next Image">&#10095;</button>
+        <button type="button" class="lightbox-nav-btn lightbox-nav-next" onclick="MediaViewer.navigate(1)" title="Next">&#10095;</button>
       </div>
 
       <div class="lightbox-actions">
         <span id="lightbox-title" style="font-size: 0.95rem;"></span>
-        <button class="btn-gold" onclick="MediaViewer.triggerDownload()">
-          Download Original
-        </button>
+
+        <div class="lightbox-buttons-group">
+          <button type="button" class="btn-gold-secondary" onclick="MediaViewer.navigate(-1)" title="Previous Item">
+            &#10094; Previous
+          </button>
+          <button type="button" class="btn-gold-secondary" onclick="MediaViewer.navigate(1)" title="Next Item">
+            Next &#10095;
+          </button>
+          <button class="btn-gold" onclick="MediaViewer.triggerDownload()">
+            Download Original
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
     const CONFIG = {
-      APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwZQIl-O21jWcBzcjvCGxG16o2fgItrM4k928k3eV61eVwJMa0XBc52fCQS3oYraW9t_Q/exec",
-      BATCH_SIZE: 16
+      APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwdOneJc8Ps00uYzG6k_8g4flRtXNw7U4lJPvkDsCB8qlSXsp3vCBTW86h9nJb5H83M/exec",
+      BATCH_SIZE: 24
     };
 
     const FOLDER_CONFIG = {
@@ -853,52 +1018,6 @@
         video: { id: "1NKjFildVyVyEWRgFkAk7reiRBKpJFqxu", name: "Reception Video", protected: false, isVideo: true }
       }
     };
-
-    function makeMockArchive() {
-      const store = [];
-      let id = 100;
-      Object.keys(FOLDER_CONFIG).forEach(cKey => {
-        const ceremony = FOLDER_CONFIG[cKey];
-        Object.keys(ceremony).forEach(tKey => {
-          const tier = ceremony[tKey];
-          if (tier.sections) {
-            Object.keys(tier.sections).forEach(sName => {
-              for (let i = 1; i <= 10; i++) {
-                id++;
-                store.push({
-                  fileId: `mock_${id}`,
-                  ceremony: cKey,
-                  tier: tKey,
-                  sectionName: sName,
-                  isProtected: tier.protected,
-                  isVideo: sName.includes("Video"),
-                  name: `${sName} ${i}`,
-                  thumbnail: `https://picsum.photos/seed/${id}/600/${i % 2 === 0 ? '450' : '750'}`
-                });
-              }
-            });
-          } else {
-            for (let i = 1; i <= (tier.isVideo ? 3 : 12); i++) {
-              id++;
-              store.push({
-                fileId: `mock_${id}`,
-                ceremony: cKey,
-                tier: tKey,
-                sectionName: tier.name,
-                isProtected: tier.protected,
-                isVideo: !!tier.isVideo,
-                name: `${tier.name} ${i}`,
-                thumbnail: tier.isVideo 
-                  ? "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=700&fit=crop"
-                  : `https://picsum.photos/seed/${id}/600/${i % 2 === 0 ? '450' : '750'}`
-              });
-            }
-          }
-        });
-      });
-      return store;
-    }
-    const MOCK_DB = makeMockArchive();
 
     const AppModals = {
       open(id) {
@@ -982,11 +1101,11 @@
             await fetch(CONFIG.APPS_SCRIPT_URL, {
               method: 'POST',
               mode: 'no-cors',
-              headers: { 'Content-Type': 'application/json' },
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
               body: JSON.stringify({ action: 'GUEST_VISIT', name, relation: rel, location: loc })
             });
           } catch(err) {
-            console.warn("Mail dispatch error", err);
+            console.warn("Mail dispatch notice:", err);
           }
         }
 
@@ -1010,21 +1129,14 @@
             await fetch(CONFIG.APPS_SCRIPT_URL, {
               method: 'POST',
               mode: 'no-cors',
-              headers: { 'Content-Type': 'application/json' },
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
               body: JSON.stringify({ action: 'REQUEST_VIP', name, email, relation: rel })
             });
             alert(`Request dispatched! Ragavan will review and email your dynamic passkey to ${email}.`);
             AppModals.close('modal-vip-access');
           } catch(err) {
-            alert('Transmission error: ' + err.message);
+            alert('Transmission notice: ' + err.message);
           }
-        } else {
-          setTimeout(() => {
-            alert(`[Simulation] Request sent for ${name} (${email}). You will receive an approval email from Ragavan.`);
-            btn.disabled = false;
-            btn.innerText = "Send Request to Ragavan's Email";
-            AppModals.close('modal-vip-access');
-          }, 800);
         }
       },
 
@@ -1106,10 +1218,15 @@
       }
     };
 
+    /* FAST NAVIGATION, RACE-CONDITION SHIELD & FOLDER CACHING */
+    let currentFetchAbort = null;
+    let currentRequestId = 0;
+    const folderMemoryCache = new Map();
+
     const AlbumNav = {
       ceremony: 'marriage',
       tier: 'album',
-      section: 'All',
+      section: '',
 
       init() {
         this.switchCeremony('marriage');
@@ -1118,7 +1235,14 @@
       switchCeremony(ceremonyKey) {
         this.ceremony = ceremonyKey;
         this.tier = 'album';
-        this.section = 'All';
+
+        const ceremonyDef = FOLDER_CONFIG[ceremonyKey];
+        const tierObj = ceremonyDef['album'];
+        if (tierObj && tierObj.sections) {
+          this.section = Object.keys(tierObj.sections)[0];
+        } else {
+          this.section = '';
+        }
 
         document.querySelectorAll('.primary-tabs button').forEach(b => {
           b.classList.toggle('active', b.dataset.ceremony === ceremonyKey);
@@ -1134,10 +1258,11 @@
 
         const ceremonyDef = FOLDER_CONFIG[this.ceremony];
 
+        // Primary Tiers
         Object.keys(ceremonyDef).forEach(tKey => {
           const item = ceremonyDef[tKey];
           const pill = document.createElement('button');
-          pill.className = `pill-btn ${item.protected ? 'protected' : ''} ${this.tier === tKey ? 'active' : ''}`;
+          pill.className = `pill-tier ${item.protected ? 'protected' : ''} ${this.tier === tKey ? 'active' : ''}`;
           pill.innerText = item.name;
 
           pill.onclick = () => {
@@ -1146,24 +1271,36 @@
               return;
             }
             this.tier = tKey;
-            this.section = 'All';
+            const targetTier = ceremonyDef[tKey];
+            if (targetTier.sections) {
+              this.section = Object.keys(targetTier.sections)[0];
+            } else {
+              this.section = '';
+            }
             this.renderNavPills();
             this.refreshMedia();
           };
           shelf.appendChild(pill);
         });
 
+        // Subfolders
         const currentTier = ceremonyDef[this.tier];
         if (currentTier && currentTier.sections) {
           const brk = document.createElement('div');
           brk.className = 'pill-break';
           shelf.appendChild(brk);
 
-          Object.keys(currentTier.sections).forEach(sName => {
+          const sectionKeys = Object.keys(currentTier.sections);
+          if (!this.section || !currentTier.sections[this.section]) {
+            this.section = sectionKeys[0];
+          }
+
+          sectionKeys.forEach(sName => {
             const secBtn = document.createElement('button');
-            secBtn.className = `pill-btn ${this.section === sName ? 'active' : ''}`;
+            secBtn.className = `pill-subfolder ${this.section === sName ? 'active' : ''}`;
             secBtn.innerText = sName;
             secBtn.onclick = () => {
+              if (this.section === sName) return;
               this.section = sName;
               this.renderNavPills();
               this.refreshMedia();
@@ -1176,34 +1313,106 @@
       async refreshMedia() {
         const wall = document.getElementById('masonry-wall');
         const sentinel = document.getElementById('scroll-sentinel');
-        wall.innerHTML = '';
-        sentinel.innerText = 'Loading memories...';
+        const tracker = document.getElementById('photo-count-tracker');
 
+        // Instant Memory Flush: prevents previous images from displaying
+        GalleryStream.items = [];
         GalleryStream.pointer = 0;
-        GalleryStream.items = await this.resolveItems();
+        wall.innerHTML = '';
+        tracker.innerText = '';
+
+        const isVideoSection = this.tier === 'video' || (this.section && this.section.toLowerCase().includes('video'));
+        const unitName = isVideoSection ? 'Videos' : 'Photos';
+        sentinel.innerText = `Connecting to Google Drive (${unitName})...`;
+
+        if (currentFetchAbort) {
+          currentFetchAbort.abort();
+        }
+        currentFetchAbort = new AbortController();
+        const thisRequestId = ++currentRequestId;
+
+        const currentTier = FOLDER_CONFIG[this.ceremony][this.tier];
+        const targetId = currentTier.sections ? currentTier.sections[this.section] : currentTier.id;
+
+        if (!targetId || targetId.startsWith("DRIVE_ID")) {
+          sentinel.innerHTML = `<span style="color:#C62828;">Folder ID not configured for this section.</span>`;
+          return;
+        }
+
+        // Instant Cache Check (re-opening visited folders takes 0s)
+        if (folderMemoryCache.has(targetId)) {
+          const cachedData = folderMemoryCache.get(targetId);
+          GalleryStream.items = cachedData;
+          tracker.innerText = `Total ${unitName}: ${cachedData.length}`;
+          sentinel.innerText = cachedData.length === 0 ? `No ${unitName.toLowerCase()} found.` : "— End of Gallery —";
+          GalleryStream.renderBatch();
+          return;
+        }
+
+        const result = await this.resolveItems(targetId, currentFetchAbort.signal);
+
+        // Guard against race conditions if user clicked another folder
+        if (thisRequestId !== currentRequestId) return;
+
+        if (result.error) {
+          sentinel.innerHTML = `<span style="color:#C62828;">Error loading folder: ${result.error}<br><small>Ensure Drive folder access is set to 'Anyone with the link can view'.</small></span>`;
+          return;
+        }
+
+        const dataArray = Array.isArray(result) ? result : [];
+        folderMemoryCache.set(targetId, dataArray);
+        GalleryStream.items = dataArray;
+
+        if (dataArray.length > 0) {
+          tracker.innerText = `Total ${unitName}: ${dataArray.length}`;
+        } else {
+          sentinel.innerText = `No ${unitName.toLowerCase()} found in this folder.`;
+        }
+
         GalleryStream.renderBatch();
       },
 
-      async resolveItems() {
-        if (CONFIG.APPS_SCRIPT_URL) {
-          try {
-            const currentTier = FOLDER_CONFIG[this.ceremony][this.tier];
-            let targetId = currentTier.sections 
-              ? (this.section === 'All' ? '' : currentTier.sections[this.section])
-              : currentTier.id;
+      async resolveItems(targetId, signal) {
+        if (!CONFIG.APPS_SCRIPT_URL) return { error: "APPS_SCRIPT_URL is not configured" };
 
-            const res = await fetch(`${CONFIG.APPS_SCRIPT_URL}?action=FETCH_MEDIA&folderId=${targetId}&ceremony=${this.ceremony}&tier=${this.tier}`);
-            return await res.json();
+        const fetchUrl = `${CONFIG.APPS_SCRIPT_URL}?action=FETCH_MEDIA&folderId=${targetId}&ceremony=${this.ceremony}&tier=${this.tier}&_t=${Date.now()}`;
+
+        // Attempt 1: Fetch
+        try {
+          const res = await fetch(fetchUrl, { signal });
+          const text = await res.text();
+          try {
+            return JSON.parse(text);
           } catch(err) {
-            console.warn("Using fallback data due to fetch error", err);
+            console.warn("Apps Script returned non-JSON, switching to JSONP bridge...");
           }
+        } catch(e) {
+          if (e.name === 'AbortError') return [];
+          console.warn("Direct fetch error, attempting JSONP fallback...", e);
         }
 
-        return MOCK_DB.filter(x => {
-          const matchCeremony = x.ceremony === this.ceremony;
-          const matchTier = x.tier === this.tier;
-          const matchSection = this.section === 'All' || x.sectionName === this.section;
-          return matchCeremony && matchTier && matchSection;
+        // Attempt 2: JSONP Fallback
+        return new Promise((resolve) => {
+          const callbackName = 'gdrive_cb_' + Math.random().toString(36).substring(2, 9);
+          const script = document.createElement('script');
+
+          window[callbackName] = (data) => {
+            cleanup();
+            resolve(data);
+          };
+
+          function cleanup() {
+            delete window[callbackName];
+            if (script.parentNode) script.parentNode.removeChild(script);
+          }
+
+          script.onerror = () => {
+            cleanup();
+            resolve({ error: "Access blocked or script timed out. Verify script deployment access is 'Anyone'." });
+          };
+
+          script.src = `${fetchUrl}&callback=${callbackName}`;
+          document.body.appendChild(script);
         });
       }
     };
@@ -1216,10 +1425,10 @@
       init() {
         const sentinel = document.getElementById('scroll-sentinel');
         const observer = new IntersectionObserver(entries => {
-          if (entries[0].isIntersecting && !this.loading) {
+          if (entries[0].isIntersecting && !this.loading && this.items.length > 0) {
             this.renderBatch();
           }
-        }, { rootMargin: '250px' });
+        }, { rootMargin: '350px' });
         observer.observe(sentinel);
       },
 
@@ -1227,8 +1436,10 @@
         const wall = document.getElementById('masonry-wall');
         const sentinel = document.getElementById('scroll-sentinel');
 
+        if (this.items.length === 0) return;
+
         if (this.pointer >= this.items.length) {
-          sentinel.innerText = this.items.length === 0 ? "No photos found in this folder." : "— End of Gallery —";
+          sentinel.innerText = "— End of Gallery —";
           return;
         }
 
@@ -1246,6 +1457,14 @@
           img.src = item.thumbnail;
           img.loading = 'lazy';
           img.alt = item.name;
+
+          img.onerror = () => {
+            if (!img.dataset.retried) {
+              img.dataset.retried = "1";
+              img.src = `https://drive.google.com/thumbnail?id=${item.fileId}&sz=w800`;
+            }
+          };
+
           card.appendChild(img);
 
           if (!AuthEngine.isVIP()) {
@@ -1264,7 +1483,7 @@
 
           const cap = document.createElement('div');
           cap.className = 'media-caption-plate';
-          cap.innerHTML = `<strong>${item.name}</strong><br><small>${item.sectionName}</small>`;
+          cap.innerHTML = `<strong>${item.name}</strong>`;
           card.appendChild(cap);
 
           frag.appendChild(card);
@@ -1282,12 +1501,16 @@
 
     const MediaViewer = {
       currentIndex: -1,
+      currentZoom: 1,
+      minZoom: 1,
+      maxZoom: 4,
 
       openByIndex(index) {
         if (index < 0 || index >= GalleryStream.items.length) return;
         this.currentIndex = index;
-        const item = GalleryStream.items[index];
+        this.resetZoom();
 
+        const item = GalleryStream.items[index];
         const mount = document.getElementById('lightbox-mount');
         const title = document.getElementById('lightbox-title');
         mount.innerHTML = '';
@@ -1295,14 +1518,20 @@
 
         if (item.isVideo) {
           mount.innerHTML = `<iframe src="https://drive.google.com/file/d/${item.fileId}/preview" allow="autoplay" allowfullscreen></iframe>`;
+          document.querySelector('.lightbox-toolbar').style.display = 'none';
         } else {
+          document.querySelector('.lightbox-toolbar').style.display = 'flex';
           const img = document.createElement('img');
           img.src = item.thumbnail;
+          img.id = 'lightbox-active-img';
           img.alt = item.name;
+          img.onerror = () => {
+            img.src = `https://drive.google.com/thumbnail?id=${item.fileId}&sz=w1600`;
+          };
           mount.appendChild(img);
+          this.attachTouchZoom(img);
         }
 
-        // Check if navigation buttons should be enabled/disabled
         const prevBtn = document.querySelector('.lightbox-nav-prev');
         const nextBtn = document.querySelector('.lightbox-nav-next');
         if (prevBtn) prevBtn.style.display = GalleryStream.items.length > 1 ? 'flex' : 'none';
@@ -1315,7 +1544,6 @@
         if (GalleryStream.items.length <= 1) return;
         let newIndex = this.currentIndex + direction;
 
-        // Loop circularly: if at the end go to beginning, and vice versa
         if (newIndex >= GalleryStream.items.length) {
           newIndex = 0;
         } else if (newIndex < 0) {
@@ -1325,6 +1553,58 @@
         this.openByIndex(newIndex);
       },
 
+      zoomIn() {
+        this.setZoom(this.currentZoom + 0.35);
+      },
+
+      zoomOut() {
+        this.setZoom(this.currentZoom - 0.35);
+      },
+
+      resetZoom() {
+        this.currentZoom = 1;
+        const img = document.getElementById('lightbox-active-img');
+        if (img) img.style.transform = `scale(1)`;
+      },
+
+      setZoom(val) {
+        this.currentZoom = Math.min(Math.max(val, this.minZoom), this.maxZoom);
+        const img = document.getElementById('lightbox-active-img');
+        if (img) img.style.transform = `scale(${this.currentZoom})`;
+      },
+
+      attachTouchZoom(el) {
+        let initialDistance = 0;
+        let lastTap = 0;
+
+        el.addEventListener('touchstart', (e) => {
+          if (e.touches.length === 2) {
+            initialDistance = Math.hypot(
+              e.touches[0].pageX - e.touches[1].pageX,
+              e.touches[0].pageY - e.touches[1].pageY
+            );
+          } else if (e.touches.length === 1) {
+            const currentTime = new Date().getTime();
+            if (currentTime - lastTap < 300 && currentTime - lastTap > 0) {
+              this.setZoom(this.currentZoom > 1 ? 1 : 2.2);
+            }
+            lastTap = currentTime;
+          }
+        }, { passive: true });
+
+        el.addEventListener('touchmove', (e) => {
+          if (e.touches.length === 2 && initialDistance > 0) {
+            const currentDistance = Math.hypot(
+              e.touches[0].pageX - e.touches[1].pageX,
+              e.touches[0].pageY - e.touches[1].pageY
+            );
+            const factor = currentDistance / initialDistance;
+            this.setZoom(this.currentZoom * factor);
+            initialDistance = currentDistance;
+          }
+        }, { passive: true });
+      },
+
       triggerDownload() {
         if (this.currentIndex < 0 || this.currentIndex >= GalleryStream.items.length) return;
         const currentItem = GalleryStream.items[this.currentIndex];
@@ -1332,17 +1612,14 @@
       }
     };
 
-    // Keyboard support for Left/Right arrows and ESC
     document.addEventListener('keydown', (e) => {
       const modal = document.getElementById('modal-lightbox');
       if (modal && modal.classList.contains('open')) {
-        if (e.key === 'ArrowLeft') {
-          MediaViewer.navigate(-1);
-        } else if (e.key === 'ArrowRight') {
-          MediaViewer.navigate(1);
-        } else if (e.key === 'Escape') {
-          AppModals.close('modal-lightbox');
-        }
+        if (e.key === 'ArrowLeft') MediaViewer.navigate(-1);
+        else if (e.key === 'ArrowRight') MediaViewer.navigate(1);
+        else if (e.key === 'Escape') AppModals.close('modal-lightbox');
+        else if (e.key === '+' || e.key === '=') MediaViewer.zoomIn();
+        else if (e.key === '-') MediaViewer.zoomOut();
       }
     });
 
