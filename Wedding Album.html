@@ -3,29 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>Ragavan D &amp; Akshaya C — Kalyana Vaibhogam</title>
+  <title>Ragavan D &amp; Akshaya C — Royal Wedding Archive</title>
 
-  <!-- Google Fonts: Traditional Display & Serif Pairing -->
+  <!-- Google Fonts: Royal Antiqua & Classical Serif Suite -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --kanjivaram-maroon: #6B0817;
-      --deep-crimson: #48000A;
+      --royal-maroon: #4F040E;
+      --deep-velvet: #2A0106;
+      --imperial-crimson: #6E0D1B;
       --temple-gold: #D4AF37;
-      --bright-gold: #F4C430;
-      --turmeric-yellow: #EAA221;
-      --auspicious-green: #144534;
-      --emerald-accent: #1E6B52;
-      --parchment-ivory: #FDFBF7;
-      --parchment-card: #F8F4EC;
-      --text-main: #2A1713;
-      --text-muted: #66524A;
-      --gold-glow: rgba(212, 175, 55, 0.45);
-      --emerald-glow: rgba(20, 69, 52, 0.35);
-      --maroon-shadow: rgba(107, 8, 23, 0.25);
+      --burnished-gold: #C59B27;
+      --liquid-gold: #F6E27A;
+      --turmeric-royal: #E5A01E;
+      --auspicious-emerald: #0D3E2F;
+      --emerald-light: #165B45;
+      --parchment-cream: #FAF7F0;
+      --parchment-soft: #F4EFE6;
+      --text-ebony: #1A0D09;
+      --text-muted: #5C4A42;
+      --gold-foil: linear-gradient(135deg, #F6E27A 0%, #D4AF37 45%, #AA771C 100%);
+      --gold-foil-hover: linear-gradient(135deg, #FFF099 0%, #E6BE44 50%, #C58A24 100%);
+      --emerald-gradient: linear-gradient(135deg, #0D3E2F 0%, #165B45 100%);
+      --royal-shadow: 0 16px 40px -10px rgba(42, 1, 6, 0.45);
+      --card-shadow: 0 10px 30px -5px rgba(79, 4, 14, 0.15);
       --border-ornate: rgba(212, 175, 55, 0.45);
       --font-display: 'Cinzel Decorative', Georgia, serif;
       --font-serif: 'Cormorant Garamond', Garamond, serif;
@@ -40,34 +44,35 @@
     }
 
     body {
-      background-color: var(--parchment-ivory);
-      color: var(--text-main);
+      background-color: var(--parchment-cream);
+      color: var(--text-ebony);
       font-family: var(--font-serif);
       min-height: 100vh;
-      line-height: 1.5;
+      line-height: 1.6;
       overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 90% 90%, rgba(107, 8, 23, 0.1) 0%, transparent 45%),
-        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 L65 35 L100 50 L65 65 L50 100 L35 65 L0 50 L35 35 Z' fill='none' stroke='%23d4af37' stroke-width='0.7' stroke-opacity='0.15'/%3E%3C/svg%3E");
+        radial-gradient(circle at 10% 15%, rgba(212, 175, 55, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 90% 85%, rgba(79, 4, 14, 0.08) 0%, transparent 45%),
+        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0 L75 45 L120 60 L75 75 L60 120 L45 75 L0 60 L45 45 Z' fill='none' stroke='%23d4af37' stroke-width='0.75' stroke-opacity='0.12'/%3E%3Ccircle cx='60' cy='60' r='12' fill='none' stroke='%23d4af37' stroke-width='0.5' stroke-opacity='0.12'/%3E%3C/svg%3E");
     }
 
-    .temple-gopuram-border {
+    .royal-thoranam-border {
       width: 100%;
-      height: 20px;
+      height: 22px;
       background: repeating-linear-gradient(
         -45deg,
-        var(--kanjivaram-maroon),
-        var(--kanjivaram-maroon) 12px,
-        var(--temple-gold) 12px,
-        var(--temple-gold) 24px,
-        var(--auspicious-green) 24px,
-        var(--auspicious-green) 36px
+        var(--royal-maroon),
+        var(--royal-maroon) 14px,
+        var(--temple-gold) 14px,
+        var(--temple-gold) 28px,
+        var(--auspicious-emerald) 28px,
+        var(--auspicious-emerald) 42px
       );
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 18px rgba(42, 1, 6, 0.35);
+      border-bottom: 1px solid rgba(246, 226, 122, 0.5);
     }
 
     #particle-canvas {
@@ -80,66 +85,67 @@
     header.wedding-header {
       position: relative;
       text-align: center;
-      padding: 3.5rem 1.5rem 2rem;
+      padding: 4.5rem 1.5rem 2.5rem;
       z-index: 2;
-      background: linear-gradient(180deg, rgba(107, 8, 23, 0.06) 0%, transparent 100%);
+      background: linear-gradient(180deg, rgba(79, 4, 14, 0.08) 0%, transparent 100%);
     }
 
     .kuthuvilakku-cluster {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1.25rem;
-      margin-bottom: 0.75rem;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .kuthuvilakku-icon {
-      width: 36px;
-      height: 36px;
-      fill: var(--temple-gold);
-      filter: drop-shadow(0 2px 8px var(--gold-glow));
-      animation: flamePulse 2.5s infinite alternate ease-in-out;
+      width: 40px;
+      height: 40px;
+      fill: url(#goldGradientSvg);
+      filter: drop-shadow(0 3px 10px rgba(212, 175, 55, 0.6));
+      animation: flameSway 3s infinite alternate ease-in-out;
     }
 
-    @keyframes flamePulse {
-      0% { transform: scale(0.97); filter: drop-shadow(0 0 4px var(--gold-glow)); }
-      100% { transform: scale(1.03); filter: drop-shadow(0 0 12px rgba(244, 196, 48, 0.8)); }
+    @keyframes flameSway {
+      0% { transform: scale(0.96) rotate(-1deg); filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.5)); }
+      100% { transform: scale(1.04) rotate(1deg); filter: drop-shadow(0 0 16px rgba(246, 226, 122, 0.9)); }
     }
 
     .vedic-slogan {
       font-size: 1.05rem;
-      font-style: italic;
-      letter-spacing: 0.12em;
-      color: var(--kanjivaram-maroon);
+      letter-spacing: 0.22em;
+      color: var(--imperial-crimson);
       text-transform: uppercase;
       font-weight: 600;
+      font-family: var(--font-sans);
     }
 
     .couple-title {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 5.5vw, 3.8rem);
-      color: var(--kanjivaram-maroon);
-      line-height: 1.2;
-      margin: 0.4rem 0;
-      text-shadow: 2px 2px 0 rgba(212, 175, 55, 0.4);
+      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      color: var(--royal-maroon);
+      line-height: 1.15;
+      margin: 0.6rem 0 0.4rem;
+      letter-spacing: 0.03em;
+      text-shadow: 2px 2px 0 rgba(212, 175, 55, 0.45), 0 0 20px rgba(212, 175, 55, 0.2);
     }
 
     .sub-celebration-title {
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--auspicious-green);
-      font-weight: 700;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      letter-spacing: 0.1em;
+      color: var(--auspicious-emerald);
+      font-weight: 600;
     }
 
     .kolam-divider {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
-      max-width: 420px;
-      margin: 1.2rem auto 0;
+      gap: 1.25rem;
+      max-width: 480px;
+      margin: 1.5rem auto 0;
     }
 
     .kolam-divider::before, .kolam-divider::after {
@@ -150,14 +156,14 @@
     }
 
     .session-bar {
-      max-width: 1280px;
-      margin: 0 auto 1.5rem;
-      padding: 0 1rem;
+      max-width: 1320px;
+      margin: 0 auto 1.75rem;
+      padding: 0 1.25rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 1rem;
       position: relative;
       z-index: 10;
     }
@@ -165,99 +171,103 @@
     .user-pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: var(--parchment-card);
+      gap: 0.65rem;
+      background: rgba(255, 255, 255, 0.85);
       border: 1px solid var(--border-ornate);
-      padding: 0.4rem 1.1rem;
+      padding: 0.45rem 1.2rem;
       border-radius: 999px;
-      font-size: 0.9rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      font-size: 0.95rem;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 15px rgba(79, 4, 14, 0.06);
     }
 
     .badge-status {
-      padding: 0.2rem 0.65rem;
-      border-radius: 12px;
+      padding: 0.2rem 0.75rem;
+      border-radius: 14px;
       font-family: var(--font-sans);
       font-size: 0.72rem;
       font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
-    .badge-guest { background: #E8E2D8; color: var(--text-muted); }
-    .badge-vip { background: #E2F0EA; color: var(--auspicious-green); border: 1px solid var(--auspicious-green); }
+    .badge-guest { background: #EAE3D5; color: var(--text-muted); border: 1px solid rgba(0,0,0,0.06); }
+    .badge-vip { background: #E0F2EC; color: var(--auspicious-emerald); border: 1px solid var(--auspicious-emerald); }
 
     .btn-gold {
-      background: linear-gradient(135deg, var(--temple-gold) 0%, var(--turmeric-yellow) 100%);
+      background: var(--gold-foil);
       color: #261107;
-      border: 1px solid var(--bright-gold);
-      padding: 0.55rem 1.25rem;
-      border-radius: 6px;
+      border: 1px solid var(--burnished-gold);
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
       font-family: var(--font-sans);
       font-size: 0.82rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      box-shadow: 0 3px 12px var(--gold-glow);
-      transition: transform 0.2s ease, filter 0.2s ease;
+      gap: 0.5rem;
+      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.45);
+      transition: all 0.25s ease;
     }
 
     .btn-gold:hover {
+      background: var(--gold-foil-hover);
       transform: translateY(-2px);
-      filter: brightness(1.08);
+      box-shadow: 0 8px 22px rgba(212, 175, 55, 0.6);
     }
 
     .btn-gold-secondary {
-      background: rgba(38, 17, 7, 0.85);
+      background: rgba(42, 1, 6, 0.9);
       border: 1px solid var(--temple-gold);
-      color: var(--temple-gold);
-      padding: 0.55rem 1.25rem;
-      border-radius: 6px;
+      color: var(--liquid-gold);
+      padding: 0.6rem 1.3rem;
+      border-radius: 8px;
       font-family: var(--font-sans);
       font-size: 0.82rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      transition: all 0.2s ease;
+      gap: 0.45rem;
+      transition: all 0.25s ease;
     }
 
     .btn-gold-secondary:hover {
-      background: var(--kanjivaram-maroon);
+      background: var(--royal-maroon);
+      border-color: var(--liquid-gold);
       color: #fff;
-      border-color: var(--bright-gold);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(79, 4, 14, 0.4);
     }
 
     .btn-logout {
       background: transparent;
-      border: 1px solid var(--kanjivaram-maroon);
-      color: var(--kanjivaram-maroon);
-      padding: 0.45rem 1rem;
-      border-radius: 6px;
+      border: 1px solid var(--imperial-crimson);
+      color: var(--imperial-crimson);
+      padding: 0.5rem 1.1rem;
+      border-radius: 8px;
       font-family: var(--font-sans);
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 600;
       cursor: pointer;
       display: none;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
     }
 
     .btn-logout:hover {
-      background: var(--kanjivaram-maroon);
+      background: var(--imperial-crimson);
       color: #fff;
     }
 
     .nav-container {
-      max-width: 1280px;
-      margin: 0 auto 2rem;
-      padding: 0 1rem;
+      max-width: 1320px;
+      margin: 0 auto 2.25rem;
+      padding: 0 1.25rem;
       position: relative;
       z-index: 10;
     }
@@ -267,147 +277,161 @@
       justify-content: center;
       gap: 1.25rem;
       border-bottom: 2px solid var(--border-ornate);
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.6rem;
+      flex-wrap: wrap;
     }
 
     .tab-btn {
       background: none;
       border: none;
       font-family: var(--font-display);
-      font-size: clamp(1.1rem, 3.2vw, 1.5rem);
+      font-size: clamp(1.05rem, 2.8vw, 1.45rem);
       font-weight: 700;
       color: var(--text-muted);
       cursor: pointer;
-      padding: 0.4rem 1.2rem;
+      padding: 0.45rem 1.1rem;
       position: relative;
-      transition: color 0.2s ease;
+      transition: color 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      color: var(--imperial-crimson);
     }
 
     .tab-btn.active {
-      color: var(--kanjivaram-maroon);
+      color: var(--royal-maroon);
     }
 
     .tab-btn.active::after {
       content: '';
       position: absolute;
-      bottom: -0.6rem;
+      bottom: -0.7rem;
       left: 0;
       width: 100%;
-      height: 3.5px;
-      background: var(--kanjivaram-maroon);
-      box-shadow: 0 2px 8px var(--maroon-shadow);
+      height: 4px;
+      background: var(--gold-foil);
+      border-radius: 4px;
+      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.7);
     }
 
     .sub-pills-bar {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.6rem;
       overflow-x: auto;
-      padding: 1rem 0 0.5rem;
+      padding: 1.25rem 0 0.5rem;
       justify-content: center;
       flex-wrap: wrap;
       -webkit-overflow-scrolling: touch;
     }
 
     .pill-tier {
-      background: #FFF;
+      background: #FFFFFF;
       border: 1.5px solid var(--temple-gold);
-      padding: 0.4rem 1.1rem;
-      border-radius: 24px;
+      padding: 0.45rem 1.25rem;
+      border-radius: 30px;
       font-size: 0.95rem;
       font-weight: 700;
-      color: var(--kanjivaram-maroon);
+      color: var(--royal-maroon);
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      gap: 0.4rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.04);
     }
 
     .pill-tier.active {
-      background: var(--kanjivaram-maroon);
-      color: #FFF;
-      border-color: var(--kanjivaram-maroon);
-      box-shadow: 0 3px 10px var(--maroon-shadow);
+      background: var(--royal-maroon);
+      color: var(--liquid-gold);
+      border-color: var(--temple-gold);
+      box-shadow: 0 4px 14px rgba(79, 4, 14, 0.35);
+      transform: translateY(-1px);
     }
 
     .pill-tier.protected::before {
       content: '🔒';
-      font-size: 0.75rem;
+      font-size: 0.78rem;
     }
 
     .pill-break {
       width: 100%;
       height: 1px;
-      margin: 0.3rem 0;
+      margin: 0.4rem 0;
     }
 
     .pill-subfolder {
-      background: #F2F8F5;
-      border: 1.5px solid var(--emerald-accent);
-      padding: 0.35rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1.5px solid var(--emerald-light);
+      padding: 0.4rem 1.15rem;
+      border-radius: 24px;
+      font-size: 0.92rem;
       font-weight: 600;
-      color: var(--auspicious-green);
+      color: var(--auspicious-emerald);
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.35rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
     }
 
     .pill-subfolder:hover {
-      background: #E1EFEA;
+      background: #E8F4F0;
+      border-color: var(--auspicious-emerald);
+      transform: translateY(-1px);
     }
 
     .pill-subfolder.active {
-      background: var(--auspicious-green);
-      color: #FFF;
-      border-color: var(--auspicious-green);
-      box-shadow: 0 3px 10px var(--emerald-glow);
+      background: var(--emerald-gradient);
+      color: #FFFFFF;
+      border-color: var(--temple-gold);
+      box-shadow: 0 4px 14px rgba(13, 62, 47, 0.35);
+      transform: translateY(-1px);
     }
 
     .gallery-viewport {
-      max-width: 1300px;
-      margin: 0 auto 4rem;
-      padding: 0 1rem;
+      max-width: 1320px;
+      margin: 0 auto 4.5rem;
+      padding: 0 1.25rem;
       position: relative;
       z-index: 5;
     }
 
     .photo-count-badge {
       text-align: center;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-      color: var(--kanjivaram-maroon);
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+      color: var(--imperial-crimson);
       font-weight: 700;
       font-family: var(--font-sans);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .masonry-grid {
-      columns: 4 270px;
-      column-gap: 1.1rem;
+      columns: 4 280px;
+      column-gap: 1.25rem;
     }
 
     .media-card {
       break-inside: avoid;
-      margin-bottom: 1.1rem;
+      margin-bottom: 1.25rem;
       position: relative;
-      border-radius: 8px;
+      border-radius: 10px;
       overflow: hidden;
-      background: #EAE3D5;
+      background: #EAE2D5;
       border: 1px solid var(--border-ornate);
-      box-shadow: 0 4px 16px rgba(107, 8, 23, 0.08);
+      box-shadow: var(--card-shadow);
       cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      min-height: 180px;
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
+      min-height: 200px;
     }
 
     .media-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px var(--maroon-shadow);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(79, 4, 14, 0.22);
+      border-color: var(--temple-gold);
     }
 
     .media-card img {
@@ -415,6 +439,33 @@
       height: auto;
       display: block;
       background: #EDE6DB;
+      transition: transform 0.4s ease;
+    }
+
+    .media-card:hover img {
+      transform: scale(1.02);
+    }
+
+    /* PDF Card Thumbnail Layout */
+    .pdf-card-surface {
+      width: 100%;
+      height: 240px;
+      background: linear-gradient(135deg, #FAF7F0 0%, #EFE8DC 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px dashed var(--temple-gold);
+    }
+
+    .pdf-card-icon {
+      width: 60px;
+      height: 60px;
+      fill: var(--royal-maroon);
+      margin-bottom: 0.75rem;
+      filter: drop-shadow(0 2px 8px rgba(79, 4, 14, 0.2));
     }
 
     .watermark-cover {
@@ -426,35 +477,38 @@
       justify-content: center;
       background: repeating-linear-gradient(
         45deg,
-        rgba(255, 255, 255, 0.03),
-        rgba(255, 255, 255, 0.03) 90px,
-        rgba(0, 0, 0, 0.03) 90px,
-        rgba(0, 0, 0, 0.03) 180px
+        rgba(255, 255, 255, 0.04),
+        rgba(255, 255, 255, 0.04) 90px,
+        rgba(0, 0, 0, 0.04) 90px,
+        rgba(0, 0, 0, 0.04) 180px
       );
     }
 
     .watermark-cover span {
       font-family: var(--font-display);
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.55);
-      border: 1px dashed rgba(255, 255, 255, 0.4);
-      padding: 0.3rem 0.6rem;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.65);
+      border: 1px dashed rgba(255, 255, 255, 0.5);
+      padding: 0.35rem 0.75rem;
       transform: rotate(-25deg);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
 
-    .badge-video {
+    .badge-media-type {
       position: absolute;
-      top: 8px;
-      right: 8px;
-      background: rgba(107, 8, 23, 0.9);
-      color: #fff;
+      top: 10px;
+      right: 10px;
+      background: rgba(79, 4, 14, 0.92);
+      border: 1px solid var(--temple-gold);
+      color: var(--liquid-gold);
       font-family: var(--font-sans);
-      font-size: 0.65rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      padding: 2px 7px;
+      padding: 3px 8px;
       border-radius: 4px;
+      letter-spacing: 0.05em;
     }
 
     .media-caption-plate {
@@ -462,12 +516,12 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 1.25rem 0.6rem 0.4rem;
-      background: linear-gradient(0deg, rgba(38, 17, 7, 0.95) 0%, transparent 100%);
+      padding: 1.5rem 0.75rem 0.5rem;
+      background: linear-gradient(0deg, rgba(42, 1, 6, 0.96) 0%, transparent 100%);
       color: #fff;
-      font-size: 0.82rem;
+      font-size: 0.88rem;
       opacity: 0;
-      transition: opacity 0.25s ease;
+      transition: opacity 0.3s ease;
     }
 
     .media-card:hover .media-caption-plate {
@@ -476,26 +530,26 @@
 
     .sentinel {
       text-align: center;
-      padding: 3rem 0;
+      padding: 3.5rem 0;
       font-style: italic;
       color: var(--text-muted);
-      font-size: 1.05rem;
+      font-size: 1.15rem;
     }
 
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(25, 10, 8, 0.92);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(26, 3, 7, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       z-index: 2000;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
+      padding: 1.25rem;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.25s ease;
+      transition: opacity 0.3s ease;
     }
 
     .modal-overlay.open {
@@ -504,82 +558,83 @@
     }
 
     .modal-sheet {
-      background: var(--parchment-ivory);
+      background: var(--parchment-cream);
       border: 2px solid var(--temple-gold);
-      border-radius: 12px;
+      border-radius: 14px;
       width: 100%;
-      max-width: 480px;
+      max-width: 500px;
       max-height: 90vh;
       overflow-y: auto;
-      padding: 2rem 1.5rem;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      padding: 2.25rem 1.75rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 30px rgba(212, 175, 55, 0.25);
       position: relative;
       overscroll-behavior: contain;
     }
 
     .modal-sheet h3 {
       font-family: var(--font-display);
-      color: var(--kanjivaram-maroon);
-      font-size: 1.4rem;
+      color: var(--royal-maroon);
+      font-size: 1.55rem;
       text-align: center;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.4rem;
     }
 
     .close-btn-round {
       position: absolute;
-      top: 10px;
-      right: 12px;
-      width: 34px;
-      height: 34px;
-      background: rgba(107, 8, 23, 0.1);
+      top: 12px;
+      right: 14px;
+      width: 36px;
+      height: 36px;
+      background: rgba(79, 4, 14, 0.08);
       border: 1px solid var(--border-ornate);
       border-radius: 50%;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       line-height: 1;
-      color: var(--kanjivaram-maroon);
+      color: var(--royal-maroon);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       z-index: 10;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
     }
 
     .close-btn-round:hover {
-      background: var(--kanjivaram-maroon);
-      color: #fff;
+      background: var(--royal-maroon);
+      color: var(--liquid-gold);
+      border-color: var(--temple-gold);
     }
 
     .field-group {
-      margin-top: 1rem;
+      margin-top: 1.15rem;
     }
 
     .field-group label {
       display: block;
       font-family: var(--font-sans);
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-main);
-      margin-bottom: 0.3rem;
+      letter-spacing: 0.06em;
+      color: var(--text-ebony);
+      margin-bottom: 0.35rem;
     }
 
     .field-group input, .field-group select {
       width: 100%;
-      padding: 0.65rem 0.8rem;
+      padding: 0.75rem 0.9rem;
       border: 1px solid var(--border-ornate);
-      border-radius: 6px;
+      border-radius: 8px;
       background: #fff;
       font-family: inherit;
-      font-size: 0.95rem;
+      font-size: 1rem;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     .field-group input:focus, .field-group select:focus {
       outline: none;
-      border-color: var(--kanjivaram-maroon);
-      box-shadow: 0 0 0 2px rgba(107, 8, 23, 0.15);
+      border-color: var(--royal-maroon);
+      box-shadow: 0 0 0 3px rgba(79, 4, 14, 0.18);
     }
 
     .field-group input.input-error, .field-group select.input-error {
@@ -587,6 +642,7 @@
       background-color: #FFF8F8 !important;
     }
 
+    /* Lightbox & Zoom Navigation Controls */
     .lightbox-wrapper {
       width: 100%;
       max-width: 96vw;
@@ -600,30 +656,33 @@
     .lightbox-toolbar {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
       z-index: 101;
     }
 
     .zoom-btn {
-      background: rgba(38, 17, 7, 0.85);
+      background: rgba(42, 1, 6, 0.85);
       border: 1px solid var(--temple-gold);
-      color: var(--temple-gold);
-      width: 36px;
-      height: 36px;
+      color: var(--liquid-gold);
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: bold;
       cursor: pointer;
       transition: all 0.2s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.5);
     }
 
     .zoom-btn:hover {
-      background: var(--kanjivaram-maroon);
+      background: var(--royal-maroon);
       color: #fff;
+      border-color: var(--liquid-gold);
+      transform: scale(1.08);
     }
 
     .lightbox-viewbox {
@@ -650,8 +709,8 @@
       max-height: 72vh;
       object-fit: contain;
       border: 2px solid var(--temple-gold);
-      border-radius: 6px;
-      box-shadow: 0 5px 30px rgba(0,0,0,0.8);
+      border-radius: 8px;
+      box-shadow: 0 10px 45px rgba(0,0,0,0.85);
       user-select: none;
       transform-origin: center center;
       transition: transform 0.15s ease-out;
@@ -663,102 +722,105 @@
     }
 
     .lightbox-body iframe {
-      width: 86vw;
-      height: 60vh;
-      max-width: 900px;
+      width: 88vw;
+      height: 68vh;
+      max-width: 1000px;
       border: 2px solid var(--temple-gold);
-      border-radius: 6px;
+      border-radius: 8px;
+      box-shadow: 0 10px 45px rgba(0,0,0,0.85);
+      background: #fff;
     }
 
     .lightbox-nav-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 46px;
-      height: 46px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      background: rgba(38, 17, 7, 0.75);
+      background: rgba(42, 1, 6, 0.85);
       border: 1.5px solid var(--temple-gold);
-      color: var(--temple-gold);
-      font-size: 1.6rem;
+      color: var(--liquid-gold);
+      font-size: 1.8rem;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       z-index: 100;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
       user-select: none;
     }
 
     .lightbox-nav-btn:hover {
-      background: var(--kanjivaram-maroon);
+      background: var(--royal-maroon);
       color: #fff;
-      border-color: var(--bright-gold);
-      transform: translateY(-50%) scale(1.1);
+      border-color: var(--liquid-gold);
+      transform: translateY(-50%) scale(1.12);
     }
 
     .lightbox-nav-prev {
-      left: -60px;
+      left: -65px;
     }
 
     .lightbox-nav-next {
-      right: -60px;
+      right: -65px;
     }
 
     .lightbox-actions {
-      margin-top: 0.75rem;
+      margin-top: 0.9rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      max-width: 850px;
+      max-width: 880px;
       color: #fff;
-      gap: 0.75rem;
+      gap: 0.85rem;
       flex-wrap: wrap;
     }
 
     .lightbox-buttons-group {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       flex-wrap: wrap;
     }
 
     @media (max-width: 768px) {
       .masonry-grid {
         columns: 2 150px;
-        column-gap: 0.6rem;
+        column-gap: 0.75rem;
       }
       .media-card {
-        margin-bottom: 0.6rem;
+        margin-bottom: 0.75rem;
       }
       .media-caption-plate {
         opacity: 1;
-        font-size: 0.75rem;
-        padding: 0.8rem 0.4rem 0.2rem;
+        font-size: 0.78rem;
+        padding: 1rem 0.5rem 0.25rem;
       }
       .couple-title {
-        font-size: 1.85rem;
+        font-size: 1.95rem;
       }
       .primary-tabs {
-        gap: 0.5rem;
+        gap: 0.6rem;
       }
       .tab-btn {
-        padding: 0.2rem 0.5rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 1.05rem;
       }
       .modal-sheet {
-        padding: 1.5rem 1rem;
+        padding: 1.75rem 1.15rem;
         max-height: 92vh;
       }
       .lightbox-body iframe {
-        height: 45vh;
+        height: 52vh;
       }
       .lightbox-nav-btn {
-        width: 38px;
-        height: 38px;
-        font-size: 1.3rem;
-        background: rgba(38, 17, 7, 0.85);
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+        background: rgba(42, 1, 6, 0.9);
       }
       .lightbox-nav-prev {
         left: 8px;
@@ -774,21 +836,32 @@
 </head>
 <body>
 
-  <div class="temple-gopuram-border"></div>
+  <!-- Hidden SVG Gradient Definition for Icons -->
+  <svg width="0" height="0" style="position:absolute;">
+    <defs>
+      <linearGradient id="goldGradientSvg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#F6E27A"/>
+        <stop offset="50%" stop-color="#D4AF37"/>
+        <stop offset="100%" stop-color="#AA771C"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="royal-thoranam-border"></div>
   <canvas id="particle-canvas"></canvas>
 
   <header class="wedding-header">
     <div class="kuthuvilakku-cluster">
       <svg class="kuthuvilakku-icon" viewBox="0 0 24 24"><path d="M12 2C11.5 2 11 3 11 4.5C11 5.8 11.8 6.8 12 7C12.2 6.8 13 5.8 13 4.5C13 3 12.5 2 12 2M9 7V8H15V7H9M8 9V10H16V9H8M9 11C8.4 11 8 11.4 8 12V13H16V12C16 11.4 15.6 11 15 11H9M11 14V19H9V20H15V19H13V14H11M6 21V22H18V21H6Z"/></svg>
-      <span class="vedic-slogan">Subha Muhurtham &bull; Mangalya Dharanam</span>
+      <span class="vedic-slogan">Mangalyam Tantunanena &bull; Saptapadi</span>
       <svg class="kuthuvilakku-icon" viewBox="0 0 24 24"><path d="M12 2C11.5 2 11 3 11 4.5C11 5.8 11.8 6.8 12 7C12.2 6.8 13 5.8 13 4.5C13 3 12.5 2 12 2M9 7V8H15V7H9M8 9V10H16V9H8M9 11C8.4 11 8 11.4 8 12V13H16V12C16 11.4 15.6 11 15 11H9M11 14V19H9V20H15V19H13V14H11M6 21V22H18V21H6Z"/></svg>
     </div>
 
     <h1 class="couple-title">Ragavan D &amp; Akshaya C</h1>
-    <p class="sub-celebration-title">South Indian Traditional Wedding Ceremony &amp; Reception Archive</p>
+    <p class="sub-celebration-title">The Sacred Union &bull; South Indian Royal Wedding Celebration</p>
 
     <div class="kolam-divider">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--temple-gold)">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="url(#goldGradientSvg)">
         <polygon points="12,2 15,9 22,12 15,15 12,22 9,15 2,12 9,9" />
       </svg>
     </div>
@@ -800,7 +873,7 @@
       <span id="session-status-badge" class="badge-status badge-guest">Guest View</span>
     </div>
 
-    <div style="display: flex; gap: 0.5rem; align-items: center;">
+    <div style="display: flex; gap: 0.6rem; align-items: center;">
       <button id="btn-request-vip" class="btn-gold" onclick="AppModals.open('modal-vip-access')">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
         Unlock Uncut Folders
@@ -811,11 +884,14 @@
     </div>
   </aside>
 
+  <!-- 5 Primary Categories -->
   <nav class="nav-container">
     <div class="primary-tabs">
+      <button class="tab-btn" data-ceremony="invitation" onclick="AlbumNav.switchCeremony('invitation')">Invitations</button>
       <button class="tab-btn" data-ceremony="engagement" onclick="AlbumNav.switchCeremony('engagement')">Engagement</button>
       <button class="tab-btn active" data-ceremony="marriage" onclick="AlbumNav.switchCeremony('marriage')">Marriage</button>
       <button class="tab-btn" data-ceremony="reception" onclick="AlbumNav.switchCeremony('reception')">Reception</button>
+      <button class="tab-btn" data-ceremony="album_soft_copy" onclick="AlbumNav.switchCeremony('album_soft_copy')">Album Soft Copy</button>
     </div>
 
     <div class="sub-pills-bar" id="sub-pills-shelf"></div>
@@ -824,15 +900,15 @@
   <main class="gallery-viewport">
     <div id="photo-count-tracker" class="photo-count-badge"></div>
     <section class="masonry-grid" id="masonry-wall"></section>
-    <div id="scroll-sentinel" class="sentinel">Loading memories...</div>
+    <div id="scroll-sentinel" class="sentinel">Loading sacred moments...</div>
   </main>
 
   <!-- MODAL 1: STRICT MANDATORY GUEST REGISTER -->
   <div class="modal-overlay" id="modal-guest-login">
     <div class="modal-sheet">
       <h3>Vanakkam!</h3>
-      <p style="text-align: center; color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.25rem;">
-        Welcome to the wedding memories of Ragavan &amp; Akshaya. Please register your details to enter the digital album.
+      <p style="text-align: center; color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.4rem;">
+        Welcome to the wedding memories of Ragavan &amp; Akshaya. Please sign our guest register to view the celebration.
       </p>
 
       <form id="guest-login-form" onsubmit="AuthEngine.submitGuestEntry(event)">
@@ -859,7 +935,7 @@
           <input type="text" id="guest-location" required placeholder="e.g. Chennai, Bengaluru, Madurai">
         </div>
 
-        <button type="submit" id="guest-submit-btn" class="btn-gold" style="width: 100%; margin-top: 1.4rem; justify-content: center; padding: 0.75rem;">
+        <button type="submit" id="guest-submit-btn" class="btn-gold" style="width: 100%; margin-top: 1.5rem; justify-content: center; padding: 0.8rem;">
           Enter Wedding Gallery
         </button>
       </form>
@@ -870,9 +946,9 @@
   <div class="modal-overlay" id="modal-vip-access" onclick="AppModals.close('modal-vip-access')">
     <div class="modal-sheet" onclick="event.stopPropagation()">
       <button type="button" class="close-btn-round" onclick="AppModals.close('modal-vip-access')">&times;</button>
-      <h3>Full Access Portal</h3>
-      <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">
-        Uncut folders and high-resolution downloads require email approval from Ragavan.
+      <h3>Family &amp; VIP Portal</h3>
+      <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+        Uncut master footage and high-resolution downloads require email approval from Ragavan.
       </p>
 
       <form onsubmit="AuthEngine.submitVIPRequest(event)">
@@ -896,13 +972,13 @@
             <option>Wedding Crew</option>
           </select>
         </div>
-        <button type="submit" id="vip-send-btn" class="btn-gold" style="width: 100%; margin-top: 1rem; justify-content: center;">
+        <button type="submit" id="vip-send-btn" class="btn-gold" style="width: 100%; margin-top: 1.15rem; justify-content: center;">
           Send Request to Ragavan's Email
         </button>
       </form>
 
-      <div style="margin: 1.2rem 0; text-align: center; font-size: 0.78rem; color: var(--text-muted);">
-        — HAVE YOUR PASSKEY ALREADY? —
+      <div style="margin: 1.25rem 0; text-align: center; font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.05em;">
+        &bull; ALREADY RECEIVED YOUR PASSKEY? &bull;
       </div>
 
       <form onsubmit="AuthEngine.verifyKeyDirectly(event)">
@@ -910,7 +986,7 @@
           <label for="input-passkey">Dynamic Passkey (from Email) *</label>
           <input type="text" id="input-passkey" required placeholder="e.g. KLY-AB12CD">
         </div>
-        <button type="submit" class="btn-gold" style="width: 100%; margin-top: 0.8rem; justify-content: center; background: var(--auspicious-green); border-color: var(--auspicious-green); color: #fff;">
+        <button type="submit" class="btn-gold" style="width: 100%; margin-top: 0.85rem; justify-content: center; background: var(--emerald-gradient); border-color: var(--temple-gold); color: #fff;">
           Verify &amp; Unlock Folders
         </button>
       </form>
@@ -922,7 +998,7 @@
     <div class="modal-sheet" onclick="event.stopPropagation()">
       <button type="button" class="close-btn-round" onclick="AppModals.close('modal-download-auth')">&times;</button>
       <h3>Security Verification</h3>
-      <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">
+      <p style="text-align: center; color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1rem;">
         To protect family photographs, please enter your dynamic access key to download original quality.
       </p>
 
@@ -931,22 +1007,22 @@
           <label for="dl-passkey">Your Dynamic Passkey *</label>
           <input type="text" id="dl-passkey" required placeholder="e.g. KLY-XXXXXX">
         </div>
-        <button type="submit" class="btn-gold" style="width: 100%; margin-top: 1.25rem; justify-content: center;">
+        <button type="submit" class="btn-gold" style="width: 100%; margin-top: 1.35rem; justify-content: center;">
           Authorize Download
         </button>
       </form>
     </div>
   </div>
 
-  <!-- MODAL 4: FULLSCREEN LIGHTBOX -->
+  <!-- MODAL 4: FULLSCREEN LIGHTBOX (SUPPORTS IMAGES, VIDEOS, AND PDFS) -->
   <div class="modal-overlay" id="modal-lightbox" onclick="AppModals.close('modal-lightbox')">
     <div class="lightbox-wrapper" onclick="event.stopPropagation()">
-      <button type="button" class="close-btn-round" style="color: #fff; background: rgba(0,0,0,0.6); top: -42px; right: 0;" onclick="AppModals.close('modal-lightbox')">&times;</button>
+      <button type="button" class="close-btn-round" style="color: #fff; background: rgba(42,1,6,0.85); border-color: var(--temple-gold); top: -45px; right: 0;" onclick="AppModals.close('modal-lightbox')">&times;</button>
       
       <div class="lightbox-toolbar">
         <button type="button" class="zoom-btn" onclick="MediaViewer.zoomIn()" title="Zoom In">+</button>
         <button type="button" class="zoom-btn" onclick="MediaViewer.zoomOut()" title="Zoom Out">&minus;</button>
-        <button type="button" class="zoom-btn" onclick="MediaViewer.resetZoom()" style="font-size: 0.8rem; width: auto; padding: 0 8px; border-radius: 18px;" title="Reset Zoom">Reset</button>
+        <button type="button" class="zoom-btn" onclick="MediaViewer.resetZoom()" style="font-size: 0.78rem; width: auto; padding: 0 12px; border-radius: 20px; font-family:var(--font-sans); text-transform:uppercase; letter-spacing:0.04em;" title="Reset Zoom">Reset</button>
       </div>
 
       <div class="lightbox-viewbox" id="lightbox-touch-area">
@@ -956,7 +1032,7 @@
       </div>
 
       <div class="lightbox-actions">
-        <span id="lightbox-title" style="font-size: 0.95rem;"></span>
+        <span id="lightbox-title" style="font-size: 0.98rem; font-weight:600; color:var(--parchment-cream);"></span>
 
         <div class="lightbox-buttons-group">
           <button type="button" class="btn-gold-secondary" onclick="MediaViewer.navigate(-1)" title="Previous Item">
@@ -965,7 +1041,7 @@
           <button type="button" class="btn-gold-secondary" onclick="MediaViewer.navigate(1)" title="Next Item">
             Next &#10095;
           </button>
-          <button class="btn-gold" onclick="MediaViewer.triggerDownload()">
+          <button id="lightbox-download-btn" class="btn-gold" onclick="MediaViewer.triggerDownload()">
             Download Original
           </button>
         </div>
@@ -980,10 +1056,18 @@
     };
 
     const FOLDER_CONFIG = {
+      // 1. Wedding Invitation
+      invitation: {
+        album: { id: "132WL12FUyYeJ4j-lxXuCJ2Y6IvS4xVaM", name: "Wedding Invitation", protected: false, noDownload: false }
+      },
+
+      // 2. Engagement
       engagement: {
         album: { id: "1u7yaSFPz8efCDPi7h7_QUC8X5REHmlSV", name: "Engagement Album Photography", protected: false },
         uncut: { id: "1lHMTfld66teAyBL952t37pAUcQKAxUdZ", name: "Engagement Uncut Version", protected: true }
       },
+
+      // 3. Marriage
       marriage: {
         album: {
           name: "Marriage Album Photography",
@@ -1012,10 +1096,17 @@
         },
         video: { id: "1pQrBlKSEdk16QaQ2nqFepwsdkcQY0eJ9", name: "Wedding Video", protected: false, isVideo: true }
       },
+
+      // 4. Reception
       reception: {
         album: { id: "1NmbZNB8LtcoBZRcGjg_fFJcBYxuaPOh9", name: "Reception Album Photography", protected: false },
         uncut: { id: "1M4NPeZr7kto54EA2VAoqY7XiDgwDusdS", name: "Reception Uncut Version", protected: true },
         video: { id: "1NKjFildVyVyEWRgFkAk7reiRBKpJFqxu", name: "Reception Video", protected: false, isVideo: true }
+      },
+
+      // 5. Album Soft Copy (View Only - PDF & Spreads Protected)
+      album_soft_copy: {
+        album: { id: "1hh27xO72dWH4GQcgqSUfrOGEAlHnbX8l", name: "Album Soft Copy (Preview Only)", protected: false, noDownload: true }
       }
     };
 
@@ -1093,7 +1184,7 @@
           return;
         }
 
-        btn.innerText = "Submitting & Entering...";
+        btn.innerText = "Entering Celebration...";
         btn.disabled = true;
 
         if (CONFIG.APPS_SCRIPT_URL) {
@@ -1191,6 +1282,11 @@
 
       pendingDownloadFileId: null,
       requestDownloadVerification(fileId) {
+        if (AlbumNav.isCurrentSectionDownloadRestricted()) {
+          alert("Notice: Downloads are disabled for the Album Soft Copy.");
+          return;
+        }
+
         this.pendingDownloadFileId = fileId;
         if (this.isVIP()) {
           this.executeDownload(fileId);
@@ -1214,11 +1310,15 @@
       },
 
       executeDownload(fileId) {
+        if (AlbumNav.isCurrentSectionDownloadRestricted()) {
+          alert("Downloads are restricted for this album.");
+          return;
+        }
         window.open(`https://drive.google.com/uc?export=download&id=${fileId}`, '_blank');
       }
     };
 
-    /* FAST NAVIGATION, RACE-CONDITION SHIELD & FOLDER CACHING */
+    /* FAST NAVIGATION & RACE-CONDITION CONTROLLER */
     let currentFetchAbort = null;
     let currentRequestId = 0;
     const folderMemoryCache = new Map();
@@ -1232,12 +1332,16 @@
         this.switchCeremony('marriage');
       },
 
+      isCurrentSectionDownloadRestricted() {
+        return this.ceremony === 'album_soft_copy';
+      },
+
       switchCeremony(ceremonyKey) {
         this.ceremony = ceremonyKey;
         this.tier = 'album';
 
         const ceremonyDef = FOLDER_CONFIG[ceremonyKey];
-        const tierObj = ceremonyDef['album'];
+        const tierObj = ceremonyDef ? ceremonyDef['album'] : null;
         if (tierObj && tierObj.sections) {
           this.section = Object.keys(tierObj.sections)[0];
         } else {
@@ -1257,41 +1361,55 @@
         shelf.innerHTML = '';
 
         const ceremonyDef = FOLDER_CONFIG[this.ceremony];
+        if (!ceremonyDef) return;
 
-        // Primary Tiers
-        Object.keys(ceremonyDef).forEach(tKey => {
-          const item = ceremonyDef[tKey];
-          const pill = document.createElement('button');
-          pill.className = `pill-tier ${item.protected ? 'protected' : ''} ${this.tier === tKey ? 'active' : ''}`;
-          pill.innerText = item.name;
+        const tierKeys = Object.keys(ceremonyDef);
+        const hasMultipleTiers = tierKeys.length > 1;
+        const currentTierObj = ceremonyDef[this.tier];
+        const hasSubSections = currentTierObj && currentTierObj.sections;
 
-          pill.onclick = () => {
-            if (item.protected && !AuthEngine.isVIP()) {
-              AppModals.open('modal-vip-access');
-              return;
-            }
-            this.tier = tKey;
-            const targetTier = ceremonyDef[tKey];
-            if (targetTier.sections) {
-              this.section = Object.keys(targetTier.sections)[0];
-            } else {
-              this.section = '';
-            }
-            this.renderNavPills();
-            this.refreshMedia();
-          };
-          shelf.appendChild(pill);
-        });
+        if (!hasMultipleTiers && !hasSubSections) {
+          shelf.style.display = 'none';
+          return;
+        } else {
+          shelf.style.display = 'flex';
+        }
 
-        // Subfolders
-        const currentTier = ceremonyDef[this.tier];
-        if (currentTier && currentTier.sections) {
-          const brk = document.createElement('div');
-          brk.className = 'pill-break';
-          shelf.appendChild(brk);
+        if (hasMultipleTiers) {
+          tierKeys.forEach(tKey => {
+            const item = ceremonyDef[tKey];
+            const pill = document.createElement('button');
+            pill.className = `pill-tier ${item.protected ? 'protected' : ''} ${this.tier === tKey ? 'active' : ''}`;
+            pill.innerText = item.name;
 
-          const sectionKeys = Object.keys(currentTier.sections);
-          if (!this.section || !currentTier.sections[this.section]) {
+            pill.onclick = () => {
+              if (item.protected && !AuthEngine.isVIP()) {
+                AppModals.open('modal-vip-access');
+                return;
+              }
+              this.tier = tKey;
+              const targetTier = ceremonyDef[tKey];
+              if (targetTier.sections) {
+                this.section = Object.keys(targetTier.sections)[0];
+              } else {
+                this.section = '';
+              }
+              this.renderNavPills();
+              this.refreshMedia();
+            };
+            shelf.appendChild(pill);
+          });
+        }
+
+        if (hasSubSections) {
+          if (hasMultipleTiers) {
+            const brk = document.createElement('div');
+            brk.className = 'pill-break';
+            shelf.appendChild(brk);
+          }
+
+          const sectionKeys = Object.keys(currentTierObj.sections);
+          if (!this.section || !currentTierObj.sections[this.section]) {
             this.section = sectionKeys[0];
           }
 
@@ -1315,14 +1433,13 @@
         const sentinel = document.getElementById('scroll-sentinel');
         const tracker = document.getElementById('photo-count-tracker');
 
-        // Instant Memory Flush: prevents previous images from displaying
         GalleryStream.items = [];
         GalleryStream.pointer = 0;
         wall.innerHTML = '';
         tracker.innerText = '';
 
         const isVideoSection = this.tier === 'video' || (this.section && this.section.toLowerCase().includes('video'));
-        const unitName = isVideoSection ? 'Videos' : 'Photos';
+        const unitName = isVideoSection ? 'Videos' : 'Items';
         sentinel.innerText = `Connecting to Google Drive (${unitName})...`;
 
         if (currentFetchAbort) {
@@ -1331,19 +1448,24 @@
         currentFetchAbort = new AbortController();
         const thisRequestId = ++currentRequestId;
 
-        const currentTier = FOLDER_CONFIG[this.ceremony][this.tier];
-        const targetId = currentTier.sections ? currentTier.sections[this.section] : currentTier.id;
-
-        if (!targetId || targetId.startsWith("DRIVE_ID")) {
-          sentinel.innerHTML = `<span style="color:#C62828;">Folder ID not configured for this section.</span>`;
+        const ceremonyDef = FOLDER_CONFIG[this.ceremony];
+        const currentTier = ceremonyDef ? ceremonyDef[this.tier] : null;
+        if (!currentTier) {
+          sentinel.innerText = "Category configuration not found.";
           return;
         }
 
-        // Instant Cache Check (re-opening visited folders takes 0s)
+        const targetId = currentTier.sections ? currentTier.sections[this.section] : currentTier.id;
+
+        if (!targetId || targetId.startsWith("PASTE_") || targetId.startsWith("DRIVE_ID")) {
+          sentinel.innerHTML = `<span style="color:#C62828;">Folder ID not configured for this section. Please replace placeholder ID in FOLDER_CONFIG.</span>`;
+          return;
+        }
+
         if (folderMemoryCache.has(targetId)) {
           const cachedData = folderMemoryCache.get(targetId);
           GalleryStream.items = cachedData;
-          tracker.innerText = `Total ${unitName}: ${cachedData.length}`;
+          this.updateCountTracker(cachedData);
           sentinel.innerText = cachedData.length === 0 ? `No ${unitName.toLowerCase()} found.` : "— End of Gallery —";
           GalleryStream.renderBatch();
           return;
@@ -1351,7 +1473,6 @@
 
         const result = await this.resolveItems(targetId, currentFetchAbort.signal);
 
-        // Guard against race conditions if user clicked another folder
         if (thisRequestId !== currentRequestId) return;
 
         if (result.error) {
@@ -1363,13 +1484,29 @@
         folderMemoryCache.set(targetId, dataArray);
         GalleryStream.items = dataArray;
 
-        if (dataArray.length > 0) {
-          tracker.innerText = `Total ${unitName}: ${dataArray.length}`;
-        } else {
+        this.updateCountTracker(dataArray);
+
+        if (dataArray.length === 0) {
           sentinel.innerText = `No ${unitName.toLowerCase()} found in this folder.`;
         }
 
         GalleryStream.renderBatch();
+      },
+
+      updateCountTracker(items) {
+        const tracker = document.getElementById('photo-count-tracker');
+        if (items.length === 0) {
+          tracker.innerText = '';
+          return;
+        }
+
+        const isVideo = this.tier === 'video' || (this.section && this.section.toLowerCase().includes('video'));
+        const hasPdf = items.some(x => x.isPdf);
+        let label = "Photos";
+        if (isVideo) label = "Videos";
+        else if (hasPdf) label = "Documents & Spreads";
+
+        tracker.innerText = `Total ${label}: ${items.length}`;
       },
 
       async resolveItems(targetId, signal) {
@@ -1377,12 +1514,12 @@
 
         const fetchUrl = `${CONFIG.APPS_SCRIPT_URL}?action=FETCH_MEDIA&folderId=${targetId}&ceremony=${this.ceremony}&tier=${this.tier}&_t=${Date.now()}`;
 
-        // Attempt 1: Fetch
         try {
           const res = await fetch(fetchUrl, { signal });
           const text = await res.text();
           try {
-            return JSON.parse(text);
+            const rawJson = JSON.parse(text);
+            return this.enrichFileTypes(rawJson);
           } catch(err) {
             console.warn("Apps Script returned non-JSON, switching to JSONP bridge...");
           }
@@ -1391,14 +1528,13 @@
           console.warn("Direct fetch error, attempting JSONP fallback...", e);
         }
 
-        // Attempt 2: JSONP Fallback
         return new Promise((resolve) => {
           const callbackName = 'gdrive_cb_' + Math.random().toString(36).substring(2, 9);
           const script = document.createElement('script');
 
           window[callbackName] = (data) => {
             cleanup();
-            resolve(data);
+            resolve(this.enrichFileTypes(data));
           };
 
           function cleanup() {
@@ -1413,6 +1549,19 @@
 
           script.src = `${fetchUrl}&callback=${callbackName}`;
           document.body.appendChild(script);
+        });
+      },
+
+      // Client-side detection for PDFs
+      enrichFileTypes(items) {
+        if (!Array.isArray(items)) return items;
+        return items.map(item => {
+          const nameLower = (item.name || "").toLowerCase();
+          const isPdf = nameLower.endsWith(".pdf") || (item.mimeType && item.mimeType.includes("pdf"));
+          return {
+            ...item,
+            isPdf: isPdf
+          };
         });
       }
     };
@@ -1453,32 +1602,52 @@
           card.className = 'media-card';
           card.onclick = () => MediaViewer.openByIndex(globalIndex);
 
-          const img = document.createElement('img');
-          img.src = item.thumbnail;
-          img.loading = 'lazy';
-          img.alt = item.name;
+          if (item.isPdf) {
+            // Elegant PDF Document Plate in the Masonry Wall
+            const pdfSurface = document.createElement('div');
+            pdfSurface.className = 'pdf-card-surface';
+            pdfSurface.innerHTML = `
+              <svg class="pdf-card-icon" viewBox="0 0 24 24">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5v1m5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5v3m4-3.5H17v1.5h1.5V13H17v2h-1.5V9h3v1.5M7 10.5h1v1H7v-1m4.5 1.5h1v1.5h-1V12z"/>
+              </svg>
+              <div style="font-family:var(--font-display); font-size:1.05rem; color:var(--royal-maroon); font-weight:700;">${item.name}</div>
+              <div style="font-family:var(--font-sans); font-size:0.75rem; color:var(--text-muted); margin-top:0.3rem; text-transform:uppercase; letter-spacing:0.06em;">Click to View PDF</div>
+            `;
+            card.appendChild(pdfSurface);
 
-          img.onerror = () => {
-            if (!img.dataset.retried) {
-              img.dataset.retried = "1";
-              img.src = `https://drive.google.com/thumbnail?id=${item.fileId}&sz=w800`;
+            const badge = document.createElement('div');
+            badge.className = 'badge-media-type';
+            badge.innerText = 'PDF DOCUMENT';
+            card.appendChild(badge);
+
+          } else {
+            // Standard Image/Video Tile
+            const img = document.createElement('img');
+            img.src = item.thumbnail;
+            img.loading = 'lazy';
+            img.alt = item.name;
+
+            img.onerror = () => {
+              if (!img.dataset.retried) {
+                img.dataset.retried = "1";
+                img.src = `https://drive.google.com/thumbnail?id=${item.fileId}&sz=w800`;
+              }
+            };
+            card.appendChild(img);
+
+            if (!AuthEngine.isVIP()) {
+              const wm = document.createElement('div');
+              wm.className = 'watermark-cover';
+              wm.innerHTML = `<span>Ragavan &amp; Akshaya</span>`;
+              card.appendChild(wm);
             }
-          };
 
-          card.appendChild(img);
-
-          if (!AuthEngine.isVIP()) {
-            const wm = document.createElement('div');
-            wm.className = 'watermark-cover';
-            wm.innerHTML = `<span>Ragavan & Akshaya</span>`;
-            card.appendChild(wm);
-          }
-
-          if (item.isVideo) {
-            const tag = document.createElement('div');
-            tag.className = 'badge-video';
-            tag.innerText = 'VIDEO';
-            card.appendChild(tag);
+            if (item.isVideo) {
+              const tag = document.createElement('div');
+              tag.className = 'badge-media-type';
+              tag.innerText = 'VIDEO';
+              card.appendChild(tag);
+            }
           }
 
           const cap = document.createElement('div');
@@ -1513,13 +1682,29 @@
         const item = GalleryStream.items[index];
         const mount = document.getElementById('lightbox-mount');
         const title = document.getElementById('lightbox-title');
+        const dlBtn = document.getElementById('lightbox-download-btn');
         mount.innerHTML = '';
         title.innerText = `${item.name} (${index + 1} / ${GalleryStream.items.length})`;
 
-        if (item.isVideo) {
+        // Hide download button for view-only section
+        if (AlbumNav.isCurrentSectionDownloadRestricted()) {
+          dlBtn.style.display = 'none';
+        } else {
+          dlBtn.style.display = 'inline-flex';
+        }
+
+        if (item.isPdf) {
+          // PDF Viewer Mode via Google Drive preview engine
           mount.innerHTML = `<iframe src="https://drive.google.com/file/d/${item.fileId}/preview" allow="autoplay" allowfullscreen></iframe>`;
           document.querySelector('.lightbox-toolbar').style.display = 'none';
+
+        } else if (item.isVideo) {
+          // Video Viewer Mode
+          mount.innerHTML = `<iframe src="https://drive.google.com/file/d/${item.fileId}/preview" allow="autoplay" allowfullscreen></iframe>`;
+          document.querySelector('.lightbox-toolbar').style.display = 'none';
+
         } else {
+          // Photo Viewer Mode with Zoom Tools
           document.querySelector('.lightbox-toolbar').style.display = 'flex';
           const img = document.createElement('img');
           img.src = item.thumbnail;
@@ -1606,6 +1791,10 @@
       },
 
       triggerDownload() {
+        if (AlbumNav.isCurrentSectionDownloadRestricted()) {
+          alert("Notice: Downloads are disabled for the Album Soft Copy.");
+          return;
+        }
         if (this.currentIndex < 0 || this.currentIndex >= GalleryStream.items.length) return;
         const currentItem = GalleryStream.items[this.currentIndex];
         AuthEngine.requestDownloadVerification(currentItem.fileId);
